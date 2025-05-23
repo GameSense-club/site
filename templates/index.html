@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../static/css/main.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+	<link rel="icon" href="{{ url_for('static', filename='lib/ghonse.svg') }}" type="image/x-icon">
+	<meta name="theme-color" content="#19132E">
+	<title>GameSense</title>
+</head>
+<body>
+	<main>
+		<img src="../static/lib/ghonse.svg" alt="Ghonse">
+		<h1>Coming Soon</h1>
+	</main>
+</body>
+
+<script>
+  const img = document.querySelector('img');
+  let scale = 1;
+  let direction = 0.00005;
+
+  function animate() {
+    scale += direction;
+
+    if (scale >= 1.03 || scale <= 0.97) {
+      direction *= -1;
+    }
+
+    img.style.transform = `scale(${scale})`;
+
+    requestAnimationFrame(animate);
+  }
+  animate();
+</script>
+
+</html>
