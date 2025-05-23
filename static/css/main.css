@@ -7,28 +7,6 @@
 	font-style: normal;
 }
 
-h1 {
-	font-size: 96px;
-	margin: 20px;
-	background: linear-gradient(90deg, #B3A9FF, white);
-	background-size: 600% 600%;
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
-	animation: gradientMove 5s ease infinite;
-}
-
-@keyframes gradientMove {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-
 main{
 	display: flex;
 	flex-direction: column;
@@ -38,9 +16,7 @@ main{
 	height: 100vh;
 }
 
-img{
-	width: 512px;
-}
+img{width: 512px;}
 
 body{
 	background-image: url('../lib/back.png');
@@ -49,7 +25,4 @@ body{
 	background-repeat: no-repeat;
 }
 
-@media (max-width: 800px) {
-	h1{font-size: 48px}
-	img{width: 256px}
-}
+@media (max-width: 800px) {img{width: 256px}}
