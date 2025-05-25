@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Задай название{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Подключение CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/colors.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/mobile.css') }}">
+    
+    <!-- Подключение Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com ">
+    <link rel="preconnect" href="https://fonts.gstatic.com " crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter :ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <!-- Подключение иконок -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css" />
+
+    <!-- Фавиконка -->
+    <link rel="icon" href="{{ url_for('static', filename='lib/ghonse.svg') }}" type="image/x-icon">
+
+    <!-- Цвет темы -->
+    <meta name="theme-color" content="#19132E">
+</head>
+<body>
+    <header id="nav-desktop">
+        <main>
+            <div class="user">
+                <h3 id="username">Дмитрий</h3>
+            </div>
+            <div class="main-link">
+                <a href="/"><i class="icon iconoir-shop"></i> Магазин</a>
+                <a href="/computers"><i class="icon iconoir-computer"></i> Компьютеры</a>
+                <a href="/profile"><i class="icon iconoir-profile-circle"></i> Профиль</a>
+                <hr>
+                <a href="/profile"><i class="icon iconoir-info-circle"></i> Правила клуба</a>
+            </div>
+        </main>
+        <button><h5>Выйти</h5></button>
+    </header>
+    <header id="nav-mobile">
+        <div class="placeholder"></div>
+        <main>
+            <a href="/"><i class="icon iconoir-shop"></i></a>
+            <a href="/computers"><i class="icon iconoir-computer"></i></a>
+            <a href="/profile"><i class="icon iconoir-profile-circle"></i></a>
+            <a><i class="icon iconoir-menu"></i></a>
+        </main>
+    </header>
+    <main>
+        <h2>#{{ self.title() }}</h2>
+        {% block content %}{% endblock %}
+    </main>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

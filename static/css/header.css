@@ -1,0 +1,38 @@
+#nav-desktop{
+	box-sizing: border-box;
+	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	min-width: 300px;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	padding: 20px 40px 20px 20px;
+	z-index: 1;
+	justify-content: space-between;
+}
+
+.user{padding: 0 10px}
+
+.main-link{
+	margin-top: 40px;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+}
+
+.main-link>a{
+	padding: 10px 0;
+	border: 1px solid rgba(255, 255, 255, 0);
+	margin: 2px 0;
+}
+
+.main-link>a:hover{
+	border: 1px solid rgba(255, 255, 255, 0.5);
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+header>button{
+	bottom: 0;
+}
