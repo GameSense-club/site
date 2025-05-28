@@ -1,4 +1,13 @@
 {% extends "base.html" %}
 {% block title %}Магазин{% endblock %}
 {% block content %}
+<button id="exit"><h5 class="balance"></h5><h5>₽</h5></button>
+<section>
+	<div id="cardsContainer" class="cardsContainer"></div>
+	<h2>#Сейчас не доступно</h2>
+	<div id="cardsContainerBlock" class="cardsContainer"></div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/time_packages.js') }}" defer></script>
 {% endblock %}

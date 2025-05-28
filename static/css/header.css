@@ -24,13 +24,7 @@
 
 .main-link>a{
 	padding: 10px 0;
-	border: 1px solid rgba(255, 255, 255, 0);
 	margin: 2px 0;
-}
-
-.main-link>a:hover{
-	border: 1px solid rgba(255, 255, 255, 0.5);
-	background-color: rgba(255, 255, 255, 0.1);
 }
 
 header>button{
