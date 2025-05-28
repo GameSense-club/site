@@ -20,7 +20,7 @@
 	.qr-code{display: none}
 
 	body{
-		background: url('../lib/back.png'), linear-gradient(135deg, #2D265C, #0F1021);
+		background: url('../lib/back.webp'), linear-gradient(135deg, #2D265C, #0F1021);
 		background-size: cover;
 		background-position: center;
 		background-repeat: no-repeat;
