@@ -2,6 +2,13 @@
 const host = "https://api.game-sense.net";
 const url = `${host}/time_packages`;
 
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+
 fetch(url, {method: 'GET',
   headers: {
             'Authorization': `Bearer ${jwtToken}`, // добавляем токен
