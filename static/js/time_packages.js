@@ -8,6 +8,7 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
+const jwtToken = getCookie('jwt_token');
 
 fetch(url, {method: 'GET',
   headers: {
