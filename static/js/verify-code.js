@@ -4,6 +4,8 @@ function getCookie(name) {
 	if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
+const jwtToken = getCookie('jwt_token');
+
 
 const userData = localStorage.getItem('user');
 const user = JSON.parse(userData);
