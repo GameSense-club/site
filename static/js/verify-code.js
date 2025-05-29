@@ -1,6 +1,15 @@
+function getCookie(name) {
+	const value = `; ${document.cookie}`;
+	const parts = value.split(`; ${name}=`);
+	if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+
 const userData = localStorage.getItem('user');
 const user = JSON.parse(userData);
 const email = user?.email || 'Email не найден'; // Защита от undefined
+
+
 
 fetch('https://api.game-sense.net/verify-code/send', {
 		method: 'POST',
