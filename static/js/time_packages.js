@@ -95,7 +95,7 @@ function sendBuyRequest(productId) {
   .then(result => {
     console.log("Успех:", result);
     updateUserData()
-    showNotification("Пакет успешно куплен!");
+    showNotification("Товар добавлен в профиль");
   })
   .catch(error => {
     console.error("Ошибка покупки:", error);

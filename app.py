@@ -1,10 +1,11 @@
-from flask import Flask, render_template, send_from_directory, request, redirect, url_for
+from flask import Flask, render_template, send_from_directory, request, redirect, url_for, make_response
 
 app = Flask(__name__)
 
 PUBLIC_ROUTES = {
     'login',
-    'static' 
+    'static',
+    'login_pc'
 }
 
 @app.before_request
@@ -37,6 +38,16 @@ def login():
 def verify():
     return render_template("verify.html")
 
+@app.route('/login_pc/<pc_token>')
+def login_pc(pc_token):
+    response = make_response(redirect(url_for('index')))
+    response.set_cookie(
+        'pc_token',
+        pc_token,
+        path='/'
+    )
+    
+    return response
 
 
 

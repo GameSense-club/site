@@ -39,3 +39,4 @@ function updateUserData() {
 }
 
 window.updateUserData = updateUserData;
+window.getCookie = getCookie;
