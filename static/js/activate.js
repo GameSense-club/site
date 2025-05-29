@@ -1,4 +1,5 @@
 function activate_package(id_product) {
+    const jwtToken = getCookie('jwt_token');
     const pc_token = getCookie('pc_token');
     const data = { 
         id: id_product, 
