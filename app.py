@@ -5,7 +5,8 @@ app = Flask(__name__)
 PUBLIC_ROUTES = {
     'login',
     'static',
-    'login_pc'
+    'login_pc',
+    'reset_password'
 }
 
 @app.before_request
@@ -46,9 +47,11 @@ def login_pc(pc_token):
         pc_token,
         path='/'
     )
-    
     return response
 
+@app.route('/reset-password/<token>')
+def reset_password(token):
+    return render_template("reset.html")
 
 
 if __name__ == '__main__':
