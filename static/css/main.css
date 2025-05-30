@@ -94,8 +94,6 @@ h2{margin-bottom: 40px}
 
 
 
-
-
 /*Уведомление*/
 .notification {
     visibility: hidden;
@@ -180,6 +178,7 @@ input:focus {
 }
 
 #send-code{margin: 20px 0}
+#newPassword{width: 600px}
 
 
 
@@ -374,4 +373,24 @@ button.deactivate{
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
+}
+
+
+::-webkit-scrollbar {
+  width: 8px; /* Ширина вертикального скроллбара */
+  height: 8px; /* Высота горизонтального скроллбара */
+}
+
+::-webkit-scrollbar-track {
+  background: var(--card-color); /* Цвет трека */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--button-color); /* Цвет ползунка */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--button-color); /* Цвет при наведении */
 }
