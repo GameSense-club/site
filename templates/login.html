@@ -10,11 +10,15 @@
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
 	<link rel="stylesheet" href="{{ url_for('static', filename='css/mobile.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
 
 	<script src="{{ url_for('static', filename='js/login.js') }}" defer></script>
 	<script src="{{ url_for('static', filename='js/update-user.js') }}" defer></script>
 	<script src="{{ url_for('static', filename='js/ghonse.js') }}" defer></script>
 	<script src="{{ url_for('static', filename='js/notification.js') }}" defer></script>
+	<script src="{{ url_for('static', filename='js/menu.js') }}?v=1.0.1" defer></script>
+	<script src="{{ url_for('static', filename='js/reset-password.js') }}?v=1.0.1" defer></script>
+	<script src="{{ url_for('static', filename='js/loading.js') }}?v=1.0.1" defer></script>
 
 	<!-- Подключение Google Fonts -->
 	<link rel="preconnect" href="https://fonts.googleapis.com ">
@@ -35,6 +39,17 @@
 	<meta name="theme-color" content="#19132E">
 </head>
 <body>
+	<div id="overlay"></div>
+	<section class="center menu" id="reset-password">
+		<div class="column">
+			<h4>Введите почту для восстановления пароля:</h4>
+			<form id="reset-password">  <!-- Убедитесь, что ID совпадает -->
+				<input type="email" name="email" placeholder="E-mail">  <!-- Обязательно добавьте `name` -->
+				<button type="submit"><h4>Отправить</h4></button>
+			</form>
+		</div>
+	</section>
+
 	<main class="full">
 		<h4 id="custom-notification" class="notification"></h4>
 		<section class="section-login">
@@ -52,11 +67,11 @@
 						<button type="submit" style="flex-grow: 1;"><h5>Войти</h5></button>
 						<button><h5>Регистрация</h5></button>
 					</div>
-					<a href=""><h6>Забыли пароль?</h6></a>
+					<a data-menu="reset-password"><h6>Забыли пароль?</h6></a>
 				</form>
 			</div>
 			<img src="{{ url_for('static', filename='lib/qrcode.svg') }}" alt="QR Code" class="qr-code">
 		</section>
-</main>
+	</main>
 </body>
 </html>

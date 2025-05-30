@@ -10,10 +10,12 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/mobile.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
 
     <script src="{{ url_for('static', filename='js/update-user.js') }}?v=1.0.1"></script>
     <script src="{{ url_for('static', filename='js/logout.js') }}?v=1.0.1" defer></script>
     <script src="{{ url_for('static', filename='js/notification.js') }}?v=1.0.1" defer></script>
+    <script src="{{ url_for('static', filename='js/menu.js') }}?v=1.0.1" defer></script>
     
     <!-- Подключение Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com ">
@@ -30,6 +32,7 @@
     <meta name="theme-color" content="#19132E">
 </head>
 <body>
+    {% include 'menu.html' %}
     <h4 id="custom-notification" class="notification"></h4>
     <header id="nav-desktop">
         <main>
@@ -48,7 +51,7 @@
                 <!-- <a href="/computers"><i class="icon iconoir-computer"></i> Компьютеры</a> -->
                 <a href="/profile"><i class="icon iconoir-profile-circle"></i> Профиль</a>
                 <hr>
-                <a href=""><i class="icon iconoir-info-circle"></i> Правила клуба</a>
+                <a data-menu="rules"><i class="icon iconoir-info-circle"></i> Правила клуба</a>
             </div>
         </main>
         <button onclick="logout()"><h5>Выйти</h5></button>
