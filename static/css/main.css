@@ -342,3 +342,36 @@ button.deactivate{
     display: flex;
     flex-direction: column;
 }
+
+
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-color);
+    font-size: 24px;
+    z-index: 1000;
+}
+
+/* Альтернативно можно сделать анимированный спиннер */
+.loader::after {
+    content: "";
+    width: 40px;
+    height: 40px;
+    border: 8px solid var(--text-color);
+    border-top: 8px solid var(--button-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
