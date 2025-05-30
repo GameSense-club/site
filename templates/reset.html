@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Новый пароль</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Подключение CSS -->
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/colors.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/mobile.css') }}">
+
+	<script src="{{ url_for('static', filename='js/notification.js') }}" defer></script>
+	<script src="{{ url_for('static', filename='js/loading.js') }}?v=1.0.1" defer></script>
+	<script src="{{ url_for('static', filename='js/newPassword.js') }}?v=1.0.1" defer></script>
+
+	<!-- Подключение Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com ">
+	<link rel="preconnect" href="https://fonts.gstatic.com " crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter :ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+
+	<!-- Подключение иконок -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css" />
+
+	<!-- Фавиконка -->
+	<link rel="icon" href="{{ url_for('static', filename='lib/ghonse.svg') }}" type="image/x-icon">
+
+	<!-- Цвет темы -->
+	<meta name="theme-color" content="#19132E">
+</head>
+<body>
+	<main class="full center-display">
+		<h4 id="custom-notification" class="notification"></h4>
+		<div class="column">
+			<h4>Введите новый пароль:</h4>
+			<form id="newPassword" class="column" style="gap: 10px;">
+				<input type="password" name='password', placeholder="Пароль:">
+				<button type="submit"><h4>Обновить</h4></button>
+			</form>
+		</div>
+	</main>
+</body>
+</html>
