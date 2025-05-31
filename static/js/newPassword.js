@@ -22,7 +22,7 @@ function newPassword(e) {
         return response.json();
     })
     .then(result => {
-        window.location.href = "/login";
+        showNotification("Пароль успешно изменён");
     })
     .catch(error => {
         showNotification(error);
