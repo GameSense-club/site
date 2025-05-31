@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}Пользователи{% endblock %}
+{% block content %}
+<section>
+	<input type="text" id="searchInput" placeholder="Поиск по имени или фамилии">
+	<select id="sortSelect">
+		<option value="">Без сортировки</option>
+		<option value="role">По роли</option>
+		<option value="balance-asc">По балансу (возрастание)</option>
+		<option value="balance-desc">По балансу (убывание)</option>
+	</select>
+	<div id="cardsContainer" class="cardsContainer"></div>
+	<div id="cardsContainerBlock" class="cardsContainer"></div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/users.js') }}" defer></script>
+{% endblock %}

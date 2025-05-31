@@ -49,6 +49,14 @@ def login_pc(pc_token):
     )
     return response
 
+@app.route('/admin')
+def admin():
+    return render_template(f"admin.html")
+
+@app.route('/admin/<action>')
+def action_admin(action):
+    return render_template(f"{action}.html")
+
 @app.route('/reset-password/<token>')
 def reset_password(token):
     return render_template("reset.html")

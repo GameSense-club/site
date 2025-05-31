@@ -9,6 +9,12 @@
     box-sizing: border-box;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
 body {
     background-color: var(--background-color);
     z-index: -10;
@@ -180,6 +186,24 @@ input:focus {
 #send-code{margin: 20px 0}
 #newPassword{width: 600px}
 
+#searchInput{
+    width: 60%;
+    margin-bottom: 20px;
+}
+
+select{
+    padding: 14px 10px;
+    border-radius: 12px;
+    font-size: 24px;
+    background-color: var(--card-color);
+    border: 1px solid rgba(0, 0, 0, 0);
+    color: var(--text-color);
+}
+
+#sortSelect{
+    width: 60%;
+    margin-bottom: 40px;
+}
 
 
 /*кнопки*/
@@ -327,6 +351,17 @@ button.deactivate{
     margin-bottom: 10px;
 }
 
+.card_user{
+    min-height: auto;
+    padding: 20px;
+    flex-grow: 1;
+}
+.card_user>h5>div>input{
+    padding: 2px;
+    max-width: 100px;
+    text-align: right; 
+}
+
 
 
 /*Flexbox утилиты*/
@@ -342,6 +377,12 @@ button.deactivate{
     flex-direction: column;
 }
 
+.center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 .loader {
     position: fixed;

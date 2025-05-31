@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html>
 <head>
     <title>{% block title %}Задай название{% endblock %}</title>
@@ -50,6 +50,7 @@
                 <a href="/"><i class="icon iconoir-shop"></i> Магазин</a>
                 <!-- <a href="/computers"><i class="icon iconoir-computer"></i> Компьютеры</a> -->
                 <a href="/profile"><i class="icon iconoir-profile-circle"></i> Профиль</a>
+                <a class='admin' href="/admin" style="display: none;"><i class="icon iconoir-user-crown"></i> Адимин</a>
                 <hr>
                 <a data-menu="rules"><i class="icon iconoir-info-circle"></i> Правила клуба</a>
             </div>
@@ -61,6 +62,7 @@
         <main>
             <a href="/"><i class="icon iconoir-shop"></i></a>
             <!-- <a href="/computers"><i class="icon iconoir-computer"></i></a> -->
+            <a class='admin' href="/admin" style="display: none;"><i class="icon iconoir-user-crown"></i> </a>
             <a href="/profile"><i class="icon iconoir-profile-circle"></i></a>
         </main>
     </header>
@@ -74,6 +76,8 @@
             updateUserData();
         });
 
+        const adminElements = document.querySelectorAll(".admin");
+
         function updateData() {
             const userData = localStorage.getItem('user');
             if (userData) {
@@ -81,6 +85,16 @@
 
                 if (user.email_confirmed === 0) {
                     window.location.href = "/verify";
+                }
+
+                if (user.role === "admin") {
+                    adminElements.forEach(el => {
+                        el.style.display = 'flex';
+                    });
+                } else {
+                    adminElements.forEach(el => {
+                        el.style.display = 'none';
+                    });
                 }
 
             // Функция для заполнения всех элементов с определённым классом
