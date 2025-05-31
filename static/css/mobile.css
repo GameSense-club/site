@@ -1,5 +1,6 @@
 @media (max-width: 800px) {
 	#nav-desktop{display: none}
+	#newPassword{width: 100%}
 
 	a, button {
 		-webkit-tap-highlight-color: transparent;
