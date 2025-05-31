@@ -1,6 +1,12 @@
 @media (max-width: 800px) {
 	#nav-desktop{display: none}
 	#newPassword{width: 100%}
+	#searchInput{width: 100%}
+	#sortSelect{width: 100%}
+
+	.card_user>h5>div>input{
+		max-width: 60px;
+	}
 
 	a, button {
 		-webkit-tap-highlight-color: transparent;
@@ -66,6 +72,8 @@
 
 	input{font-size: 20px}
 
+	select{font-size: 20px}
+
 	#nav-mobile{
 		display: flex;
 		flex-direction: column;
@@ -127,6 +135,7 @@
 		padding: 10px;
 	}
 
+	.card_user{width: 100%}
 	.notification{left: 50%;}
 
 }
