@@ -28,7 +28,7 @@ for (const id in inventory) {
 			}
 
 			card.innerHTML = `
-                <img alt="Пакет" src="${host}/images/time_packages/${item.id}">
+                <img alt="Пакет" loading="eager" src="${host}/images/time_packages/${item.id}">
                 ${buttonHTML}
 			`;
 

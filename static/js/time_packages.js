@@ -45,7 +45,7 @@ fetch(url, {method: 'GET',
     card.className = "card card_product";
 
     card.innerHTML = `
-        <img alt="Пакет" src="${host}/images/time_packages/${item.id}">
+        <img alt="Пакет" loading="eager" src="${host}/images/time_packages/${item.id}">
         <h5>${item.price}₽</h5>
         <button class="buy-button"><h5>Купить</h5></button>
     `;
@@ -93,7 +93,6 @@ function sendBuyRequest(productId) {
     return response.json();
   })
   .then(result => {
-    console.log("Успех:", result);
     updateUserData()
     showNotification("Товар добавлен в профиль");
   })
