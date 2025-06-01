@@ -47,6 +47,7 @@ function showPC() {
                     <option value="заблокирован">Заблокирован</option>
                     <option value="ремонт">На ремонте</option>
                 </select>
+                <button class="update-btn"><h5>Обновить</h5></button>
             `;
 
             // Устанавливаем выбранное значение в зависимости от item.status
@@ -71,10 +72,12 @@ function showPC() {
             container.appendChild(pc); 
             dropdownContainer.appendChild(dropdown);
 
-            // Добавляем обработчики событий для автоматической отправки данных
-            const timeInput = dropdown.querySelector('#timeActive');
-            statusSelect.addEventListener('change', () => sendUpdate(item.token, statusSelect.value, timeInput.value));
-            timeInput.addEventListener('change', () => sendUpdate(item.token, statusSelect.value, timeInput.value));
+            // Добавляем обработчик события для кнопки "Обновить"
+            const updateButton = dropdown.querySelector('.update-btn');
+            updateButton.addEventListener('click', () => {
+                const timeInput = dropdown.querySelector('#timeActive');
+                sendUpdate(item.token, statusSelect.value, timeInput.value);
+            });
         });
     })
     .catch(error => {
@@ -85,12 +88,7 @@ function showPC() {
 // Модифицированная функция для отправки данных на сервер
 function sendUpdate(token, status, time) {
     const jwtToken = getCookie('jwt_token');
-    if (status === "занят" || time === null) {
-        time = "2125-06-01T23:46"
-    }
-    if (status === "активен") {
-        time = "1125-06-01T23:46"
-    }
+
     const data = {
         token: token,
         status: status,

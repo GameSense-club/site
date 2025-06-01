@@ -42,27 +42,46 @@
 
     // Функция для позиционирования меню рядом с курсором
     function positionDropdownAtCursor(menu, event) {
-        // Получаем координаты курсора
-    	const x = event.clientX;
-    	const y = event.clientY;
+    // Получаем текущие стили меню
+    // Получаем координаты курсора
+        const x = event.clientX;
+        const y = event.clientY;
 
-        // Позиционируем меню
-    	menu.style.position = 'fixed';
-    	menu.style.left = x + 'px';
-    	menu.style.top = y + 'px';
+    // Устанавливаем стили только если они еще не заданы
+        const computedStyles = window.getComputedStyle(menu);
 
-        // Проверяем, чтобы меню не выходило за границы окна
-    	const menuRect = menu.getBoundingClientRect();
-    	const windowWidth = window.innerWidth;
-    	const windowHeight = window.innerHeight;
+        if (computedStyles.getPropertyValue('position') === 'static') {
+            menu.style.position = 'fixed';
+        }
+        if (computedStyles.getPropertyValue('left') !== '0px') {
+            menu.style.left = `${x}px`;
+        }
+        if (computedStyles.getPropertyValue('top') !== 'auto') {
+            console.log(computedStyles.getPropertyValue('top'))
+            menu.style.top = `${y}px`;
+        }
 
-    	if (x + menuRect.width > windowWidth) {
-    		menu.style.left = (windowWidth - menuRect.width) + 'px';
-    	}
+    // Проверяем, чтобы меню не выходило за границы окна
+        const menuRect = menu.getBoundingClientRect();
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
 
-    	if (y + menuRect.height > windowHeight) {
-    		menu.style.top = (windowHeight - menuRect.height) + 'px';
-    	}
+        let adjustedLeft = x;
+        let adjustedTop = y;
+
+        if (x + menuRect.width > windowWidth) {
+            adjustedLeft = windowWidth - menuRect.width;
+        }
+        if (y + menuRect.height > windowHeight) {
+            adjustedTop = windowHeight - menuRect.height;
+        }
+
+        // if (menu.style.left !== `${adjustedLeft}px`) {
+        //     menu.style.left = `${adjustedLeft}px`;
+        // }
+        // if (menu.style.top !== `${adjustedTop}px`) {
+        //     menu.style.top = `${adjustedTop}px`;
+        // }
     }
 });
 </script>

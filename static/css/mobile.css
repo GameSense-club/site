@@ -140,4 +140,16 @@
 	.card_user{width: 100%}
 	.notification{left: 50%;}
 
+
+	.dropdown-content {
+		top: auto;
+		bottom: 0;
+		width: 100%;
+		left: 0px;
+		position: fixed;
+		padding: 20px 10px 10px 10px;
+		border-radius: 12px 12px 0 0 ;
+	}
+}
+
 }
