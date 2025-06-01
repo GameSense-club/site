@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}Компьютеры{% endblock %}
+{% block content %}
+<div id="dropdownContainer"></div>
+<section>
+	<div id="pcContainer" class="cardsContainer">
+	</div>
+</section>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/showPC.js') }}" defer></script>
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+    // Родительский контейнер, в котором появляются элементы с dropdown
+    const container = document.getElementById('pcContainer'); // Или 'dropdownContainer', если меню там
+    
+    // Обработчик кликов для всего контейнера
+    container.addEventListener('click', function(event) {
+        // Проверяем, был ли клик по элементу с атрибутом dropdown
+    	const toggle = event.target.closest('[dropdown]');
+    	if (toggle) {
+    		const dropdownId = toggle.getAttribute('dropdown');
+    		const dropdownMenu = document.getElementById(dropdownId);
+    		if (dropdownMenu) {
+                // Позиционируем меню рядом с курсором
+    			positionDropdownAtCursor(dropdownMenu, event);
+    			dropdownMenu.classList.toggle('show');
+                event.stopPropagation(); // Чтобы не сработал window.click ниже
+            }
+        }
+    });
+
+    // Закрываем меню при клике вне его
+    window.addEventListener('click', function(event) {
+    	const allMenus = document.querySelectorAll('.dropdown-content');
+    	allMenus.forEach(menu => {
+    		if (!menu.contains(event.target)) {
+    			menu.classList.remove('show');
+    		}
+    	});
+    });
+
+    // Функция для позиционирования меню рядом с курсором
+    function positionDropdownAtCursor(menu, event) {
+        // Получаем координаты курсора
+    	const x = event.clientX;
+    	const y = event.clientY;
+
+        // Позиционируем меню
+    	menu.style.position = 'fixed';
+    	menu.style.left = x + 'px';
+    	menu.style.top = y + 'px';
+
+        // Проверяем, чтобы меню не выходило за границы окна
+    	const menuRect = menu.getBoundingClientRect();
+    	const windowWidth = window.innerWidth;
+    	const windowHeight = window.innerHeight;
+
+    	if (x + menuRect.width > windowWidth) {
+    		menu.style.left = (windowWidth - menuRect.width) + 'px';
+    	}
+
+    	if (y + menuRect.height > windowHeight) {
+    		menu.style.top = (windowHeight - menuRect.height) + 'px';
+    	}
+    }
+});
+</script>
+{% endblock %}

@@ -362,6 +362,40 @@ button.deactivate{
     text-align: right; 
 }
 
+.pc{
+    border-radius: 12px;
+    padding: 20px;
+}
+.pc>p{
+    font-size: 48px;
+
+}
+
+.pc:hover{transform: scale(1.05);}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+#statusPC{width: 100%}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--background-color);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+.show {
+    display: flex;
+}
+
 
 
 /*Flexbox утилиты*/
