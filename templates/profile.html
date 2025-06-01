@@ -1,20 +1,16 @@
 {% extends "base.html" %}
 {% block title %}Инвентарь{% endblock %}
 {% block content %}
-<!-- <div class="profile">
-	<div class="row">
-		<h3 class="first_name"></h3>
-		<h3 class="last_name"></h3>
-	</div>
-	<h4><b>Почта:</b> <i class="email"></i></h4>
-	<h4><b>Баланс:</b> <i class="balance"></i>₽</h4>
-	<button onclick="logout()"><h5>Выйти</h5></button>
-</div> -->
 
+<section class="menu" id="about_activate">
+	<h4>Карточку можно активировать только в клубе<br>С нетерпением ждём вас!</h4>
+</section>
 <button id="exit" onclick="logout()"><h5 class="iconoir-transition-right"></h5></button>
 
 <section>
 	<div id="cardsContainer" class="cardsContainer"></div>
+	<h2 id="h2">#Сейчас не доступно</h2>
+	<div id="blockedContainer" class="cardsContainer"></div>
 </section>
 {% endblock %}
 {% block scripts %}

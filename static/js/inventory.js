@@ -21,7 +21,7 @@ for (const id in inventory) {
 			const card = document.createElement("div");
 			card.className = "card card_product";
 
-			let buttonHTML = `<button class="buy-button details"><h5>Подробнее</h5></button>`;
+			let buttonHTML = `<button data-menu="about_activate" class="buy-button details"><h5>Подробнее</h5></button>`;
 			if (pc_token) {
 				buttonHTML = 
 				buttonHTML = `<button onclick="activate_package(${item.id})" class="buy-button"><h5>Активировать</h5></button>`;
@@ -32,7 +32,18 @@ for (const id in inventory) {
                 ${buttonHTML}
 			`;
 
-			container.appendChild(card);
+
+			if (item.is_active === 2) {
+				const section = document.getElementById("blockedContainer");
+				const h2 = document.getElementById("h2");
+				section.style.display = 'flex';
+				h2.style.display = 'block';
+				card.classList.add("deactivate"); 
+				blockedContainer.appendChild(card);
+			} 
+			else {
+				container.appendChild(card);
+			}
 		}})
 
 	.catch(error => {
