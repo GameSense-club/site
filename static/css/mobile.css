@@ -140,6 +140,16 @@
 	.card_user{width: 100%}
 	.notification{left: 50%;}
 
+	.pc{
+		align-items: center;
+		justify-content: center;
+		flex-grow: 1;
+	}
+	.pc>p{
+		align-items: center;
+		display: flex;
+		justify-content: center;
+	}
 
 	.dropdown-content {
 		top: auto;
