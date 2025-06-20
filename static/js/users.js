@@ -4,6 +4,17 @@ let cardsData = []; // Глобальная переменная для хран
 
 const jwtToken = getCookie('jwt_token');
 
+// Функция для экранирования HTML
+function escapeHtml(unsafe) {
+  if (!unsafe) return '';
+  return unsafe.toString()
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 // Функция для отправки нового баланса
 async function updateBalance(userId, newBalance) {
   try {
@@ -33,6 +44,21 @@ async function updateBalance(userId, newBalance) {
   }
 }
 
+// Безопасное создание элементов
+function createElement(tag, attributes = {}, textContent = '') {
+  const element = document.createElement(tag);
+  
+  for (const [key, value] of Object.entries(attributes)) {
+    element.setAttribute(key, escapeHtml(value));
+  }
+  
+  if (textContent) {
+    element.textContent = textContent;
+  }
+  
+  return element;
+}
+
 // Функция для отображения карточек
 function renderCards(data) {
   const container = document.getElementById("cardsContainer");
@@ -43,38 +69,66 @@ function renderCards(data) {
     return;
   }
 
-  // Очищаем контейнеры
-  container.innerHTML = '';
-  blockedContainer.innerHTML = '';
+  // Очищаем контейнеры безопасным способом
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
+  while (blockedContainer.firstChild) {
+    blockedContainer.removeChild(blockedContainer.firstChild);
+  }
 
   if (!Array.isArray(data)) {
     console.error("Полученные данные не являются массивом:", data);
-    container.innerHTML = "<p>Ошибка: данные пришли в неверном формате.</p>";
+    const errorMsg = createElement('p', {}, 'Ошибка: данные пришли в неверном формате.');
+    container.appendChild(errorMsg);
     return;
   }
 
   if (data.length === 0) {
-    container.innerHTML = "<p>Пользователи не найдены</p>";
+    const noUsersMsg = createElement('p', {}, 'Пользователи не найдены');
+    container.appendChild(noUsersMsg);
     return;
   }
 
   data.forEach(item => {
-    const card = document.createElement("div");
-    card.className = "card card_user";
-
-    card.innerHTML = `
-      <h5>Имя: ${item.first_name}</h5>
-      <h5>Фамилия: ${item.last_name}</h5>
-      <h5>Почта: ${item.email}</h5>
-      <h5 class="row">Баланс: <div class="row">
-        <input type="number" min="0" value="${item.balance}" 
-               oninput="validity.valid||(value='');" 
-               onchange="handleBalanceChange(${item.id}, this.value)">
-        ₽
-      </div></h5>
-      <h5>Роль: ${item.role}</h5>
-    `;
-
+    const card = createElement('div', { class: 'card card_user' });
+    
+    // Создаем элементы безопасным способом
+    const firstName = createElement('h5', {}, `Имя: ${escapeHtml(item.first_name)}`);
+    const lastName = createElement('h5', {}, `Фамилия: ${escapeHtml(item.last_name)}`);
+    const email = createElement('h5', {}, `Почта: ${escapeHtml(item.email)}`);
+    
+    // Создаем элемент баланса
+    const balanceLabel = createElement('h5', { class: 'row' }, 'Баланс: ');
+    const balanceInputContainer = createElement('div', { class: 'row' });
+    
+    const balanceInput = createElement('input', {
+      type: 'number',
+      min: '0',
+      value: escapeHtml(item.balance)
+    });
+    
+    balanceInput.addEventListener('input', (e) => {
+      if (!e.target.validity.valid) e.target.value = '';
+    });
+    
+    balanceInput.addEventListener('change', () => {
+      handleBalanceChange(item.id, balanceInput.value);
+    });
+    
+    balanceInputContainer.appendChild(balanceInput);
+    balanceInputContainer.appendChild(document.createTextNode(' ₽'));
+    balanceLabel.appendChild(balanceInputContainer);
+    
+    const role = createElement('h5', {}, `Роль: ${escapeHtml(item.role)}`);
+    
+    // Добавляем все элементы в карточку
+    card.appendChild(firstName);
+    card.appendChild(lastName);
+    card.appendChild(email);
+    card.appendChild(balanceLabel);
+    card.appendChild(role);
+    
     if (item.is_active === 2) {
       card.classList.add("deactivate");
       blockedContainer.appendChild(card);
@@ -87,23 +141,29 @@ function renderCards(data) {
 // Обработчик изменения баланса
 async function handleBalanceChange(userId, newBalance) {
   try {
-    await updateBalance(userId, parseInt(newBalance));
+    const balance = parseInt(newBalance);
+    if (isNaN(balance)) {
+      throw new Error('Неверное значение баланса');
+    }
+    
+    await updateBalance(userId, balance);
     console.log(`Баланс пользователя ${userId} успешно обновлен`);
   } catch (error) {
     console.error('Не удалось обновить баланс:', error);
     // Можно добавить уведомление пользователю об ошибке
+    alert('Ошибка при обновлении баланса: ' + error.message);
   }
 }
 
 // Функция для поиска
 function searchCards(query) {
-  if (!query) return cardsData;
+  if (!query) return [...cardsData]; // Возвращаем копию массива
 
-  const searchTerms = query.toLowerCase().split(' ');
+  const searchTerms = query.toLowerCase().split(' ').filter(term => term.trim());
 
   return cardsData.filter(item => {
-    const firstName = item.first_name.toLowerCase();
-    const lastName = item.last_name.toLowerCase();
+    const firstName = item.first_name?.toLowerCase() || '';
+    const lastName = item.last_name?.toLowerCase() || '';
 
     // Проверяем, совпадает ли любой из терминов с именем или фамилией
     return searchTerms.some(term => 
@@ -114,19 +174,19 @@ function searchCards(query) {
 
 // Функция для сортировки
 function sortCards(data, sortValue) {
-  if (!sortValue) return data;
+  if (!sortValue) return [...data]; // Возвращаем копию массива
 
   const sortedData = [...data];
 
   switch(sortValue) {
     case 'role':
-      sortedData.sort((a, b) => a.role.localeCompare(b.role));
+      sortedData.sort((a, b) => (a.role || '').localeCompare(b.role || ''));
       break;
     case 'balance-asc':
-      sortedData.sort((a, b) => a.balance - b.balance);
+      sortedData.sort((a, b) => (a.balance || 0) - (b.balance || 0));
       break;
     case 'balance-desc':
-      sortedData.sort((a, b) => b.balance - a.balance);
+      sortedData.sort((a, b) => (b.balance || 0) - (a.balance || 0));
       break;
   }
 
@@ -135,25 +195,23 @@ function sortCards(data, sortValue) {
 
 // Обработчики событий для поиска и сортировки
 function setupEventListeners() {
-  document.getElementById('searchInput')?.addEventListener('input', (e) => {
-    const query = e.target.value.trim();
-    const sortValue = document.getElementById('sortSelect').value;
-    
-    let filteredData = searchCards(query);
-    filteredData = sortCards(filteredData, sortValue);
-    
-    renderCards(filteredData);
-  });
+  const searchInput = document.getElementById('searchInput');
+  const sortSelect = document.getElementById('sortSelect');
+  
+  if (!searchInput || !sortSelect) return;
 
-  document.getElementById('sortSelect')?.addEventListener('change', (e) => {
-    const query = document.getElementById('searchInput').value.trim();
-    const sortValue = e.target.value;
+  const handleFilter = () => {
+    const query = searchInput.value.trim();
+    const sortValue = sortSelect.value;
     
     let filteredData = searchCards(query);
     filteredData = sortCards(filteredData, sortValue);
     
     renderCards(filteredData);
-  });
+  };
+
+  searchInput.addEventListener('input', handleFilter);
+  sortSelect.addEventListener('change', handleFilter);
 }
 
 // Основной запрос данных
@@ -169,6 +227,10 @@ fetch(url, {
   return response.json();
 })
 .then(data => {
+  if (!Array.isArray(data)) {
+    throw new Error('Полученные данные не являются массивом');
+  }
+  
   cardsData = data; // Сохраняем данные в глобальную переменную
   renderCards(data); // Первоначальная отрисовка
   setupEventListeners(); // Настраиваем обработчики событий
@@ -177,6 +239,7 @@ fetch(url, {
   console.error("Ошибка загрузки данных:", error);
   const container = document.getElementById("cardsContainer");
   if (container) {
-    container.innerHTML = "<p>Ошибка загрузки данных. Попробуйте позже.</p>";
+    const errorMsg = createElement('p', {}, 'Ошибка загрузки данных. Попробуйте позже.');
+    container.appendChild(errorMsg);
   }
 });
