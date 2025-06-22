@@ -403,6 +403,8 @@ button.deactivate{
     gap: 10px;
 }
 
+.busy-pc{margin: 10px 0}
+
 .column {
     display: flex;
     flex-direction: column;
