@@ -34,6 +34,7 @@
 <body>
     {% include 'menu.html' %}
     <h4 id="custom-notification" class="notification"></h4>
+    <h4 id="out_time" class="notification"></h4>
     <header id="nav-desktop">
         <main>
             <div class="user">
@@ -96,6 +97,7 @@
                         el.style.display = 'none';
                     });
                 }
+
 
             // Функция для заполнения всех элементов с определённым классом
                 function fillElements(className, value) {
