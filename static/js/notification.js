@@ -29,6 +29,10 @@ function showNotificationTime() {
     .then(response => response.json())
     .then(responseData => {
         const time_active = responseData.message.time_active || 'N/A';
+
+        if (time_active === "N/A"){
+            return;
+        }
         
         const notification = document.getElementById('out_time');
 
