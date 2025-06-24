@@ -67,10 +67,6 @@ function showNotificationTime() {
         const timerInterval = setInterval(updateTimer, 1000);
     })
     .catch(error => {
-        console.log(error);
-        const notification = document.getElementById('out_time');
-        notification.textContent = 'Ошибка';
-        notification.className = 'notification show';
     });
 }
 
