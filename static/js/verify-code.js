@@ -23,13 +23,6 @@ fetch('https://api.game-sense.net/verify-code/send', {
 	})
 
 
-function getCookie(name) {
-	const value = `; ${document.cookie}`;
-	const parts = value.split(`; ${name}=`);
-	if (parts.length === 2) return parts.pop().split(';').shift();
-}
-
-
 document.getElementById("email").textContent = email;
 
 const inputs = document.querySelectorAll('input');

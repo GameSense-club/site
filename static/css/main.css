@@ -111,7 +111,7 @@ h2{margin-bottom: 40px}
     padding: 12px;
     position: fixed;
     z-index: 9999;
-    left: calc(50% + 300px);
+    left: calc(50%);
     top: 30px;
     transform: translateX(-50%);
     opacity: 0;
@@ -121,6 +121,14 @@ h2{margin-bottom: 40px}
 .notification.show {
     visibility: visible;
     opacity: 1;
+}
+
+#out_time{
+    top: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--text-color);
 }
 
 
