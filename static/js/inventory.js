@@ -2,7 +2,7 @@ const userData = localStorage.getItem('user');
 const user = JSON.parse(userData);
 const inventory = user.inventory.time_packages;
 
-const host = "https://api.game-sense.net"; // замените на актуальный хост
+const host = "https://api.game-sense.ru"; // замените на актуальный хост
 const container = document.getElementById("cardsContainer"); // предположим, у тебя есть контейнер
 const pc_token = getCookie('pc_token');
 const jwtToken = getCookie('jwt_token');

@@ -19,7 +19,7 @@ function showNotificationTime() {
     const pc_token = getCookie('pc_token');
     const jwtToken = getCookie('jwt_token');
 
-    fetch(`https://api.game-sense.net/pc/status/${pc_token}`, {
+    fetch(`https://api.game-sense.ru/pc/status/${pc_token}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

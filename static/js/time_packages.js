@@ -1,5 +1,5 @@
 // Замените на ваш реальный адрес
-const host = "https://api.game-sense.net";
+const host = "https://api.game-sense.ru";
 const url = `${host}/time_packages`;
 
 function getCookie(name) {

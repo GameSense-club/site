@@ -16,7 +16,7 @@ function updateUserData() {
     }
 
     // Выполняем GET-запрос без тела
-    fetch('https://api.game-sense.net/profile ', {
+    fetch('https://api.game-sense.ru/profile ', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',

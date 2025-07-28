@@ -13,7 +13,7 @@ const email = user?.email || 'Email не найден'; // Защита от und
 
 
 
-fetch('https://api.game-sense.net/verify-code/send', {
+fetch('https://api.game-sense.ru/verify-code/send', {
 		method: 'POST',
 		headers: {
 			'Authorization': `Bearer ${jwtToken}`,
@@ -58,7 +58,7 @@ function sendData() {
 	const jwtToken = getCookie('jwt_token');
 	const data = { email: email, code: code };
 
-	fetch('https://api.game-sense.net/verify-code ', {
+	fetch('https://api.game-sense.ru/verify-code ', {
 		method: 'POST',
 		headers: {
 			'Authorization': `Bearer ${jwtToken}`,
@@ -103,7 +103,7 @@ resendBtn.addEventListener('click', async () => { // добавлен async дл
     const data = { email: email }; // убедитесь, что переменная email определена
 
     try {
-        const response = await fetch('https://api.game-sense.net/verify-code/send ', { // убран лишний пробел
+        const response = await fetch('https://api.game-sense.ru/verify-code/send ', { // убран лишний пробел
         	method: 'POST',
         	headers: {
         		'Authorization': `Bearer ${jwtToken}`,

@@ -1,4 +1,4 @@
-const host = "https://api.game-sense.net";
+const host = "https://api.game-sense.ru";
 const url = `${host}/profile/all`;
 let cardsData = []; // Глобальная переменная для хранения данных
 

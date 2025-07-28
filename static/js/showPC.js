@@ -1,7 +1,7 @@
 function showPC() {
     const jwtToken = getCookie('jwt_token');
 
-    fetch('https://api.game-sense.net/pc', {
+    fetch('https://api.game-sense.ru/pc', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -168,7 +168,7 @@ function sendUpdate(token, status, time) {
         time: time
     };
 
-    fetch('https://api.game-sense.net/pc/status', {
+    fetch('https://api.game-sense.ru/pc/status', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
