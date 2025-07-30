@@ -69,7 +69,7 @@ fetch(url, {method: 'GET',
   console.error("Ошибка загрузки данных:", error);
   const container = document.getElementById("cardsContainer");
   if (container) {
-    container.innerHTML = "<p>Ошибка загрузки данных. Попробуйте позже.</p>";
+    container.innerHTML = "<h4>Данные устарели. Перезайдите в аккаунт</h4>";
   }
 });
 
