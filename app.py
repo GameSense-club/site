@@ -6,7 +6,8 @@ PUBLIC_ROUTES = {
     'login',
     'static',
     'login_pc',
-    'reset_password'
+    'reset_password',
+    'price'
 }
 
 @app.before_request
@@ -60,6 +61,10 @@ def action_admin(action):
 @app.route('/reset-password/<token>')
 def reset_password(token):
     return render_template("reset.html")
+
+@app.route('/price')
+def price():
+    return render_template("price.html")
 
 
 if __name__ == '__main__':

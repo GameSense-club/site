@@ -329,6 +329,16 @@ button.deactivate{
     border-radius: 10px;
 }
 
+.price{
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: center;
+}
+.price .card{
+    flex-grow: 1;
+    max-width: 295px;
+}
 
 
 /*Карточки*/
