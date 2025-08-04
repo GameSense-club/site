@@ -352,7 +352,8 @@ button.deactivate{
 .card {
     display: flex;
     flex-direction: column;
-    max-height: 300px;
+    min-height: 300px;
+    max-width: 300px
     background-color: var(--card-color);
     border-radius: 12px;
     padding: 10px;
