@@ -358,10 +358,10 @@ button.deactivate{
     padding: 10px;
 }
 
-.card_product {
+.price > .card_product {
     width: 300px;
 }
-.card_product>img{
+.price > .card_product>img{
 	margin-bottom: 10px;
 }
 
