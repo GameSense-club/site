@@ -1,4 +1,4 @@
-@media (max-width: 800px) {
+@media (width <= 1000px) {
 	#nav-desktop{display: none}
 	#newPassword{width: 100%}
 	#searchInput{width: 100%}
