@@ -1,3 +1,10 @@
+@import url("cards.css");
+@import url("variables.css");
+@import url("header.css");
+@import url("menus.css");
+@import url("mobile.css");
+@import url("pc.css");
+
 /*Сброс и глобальные стили*/
 * {
     padding: 0;
@@ -20,15 +27,10 @@ body {
     z-index: -10;
 }
 
-#nav-mobile {
-    display: none;
-}
-
 .none{display: none}
 
 
 
-/*Макет и контейнеры*/
 body > main {
     width: calc(100% - 300px);
     background: url('../lib/back.webp'), linear-gradient(135deg, #2D265C, #0F1021);
@@ -70,34 +72,14 @@ section{
 
 
 
-/*текст*/
-h1, h2, h3, h4, h5, h6, p, a, button {
-    color: var(--text-color);
-}
+h1, h2, h3, h4, h5, h6, p, a, button {color: var(--text-color);}
 
-.text {
-    font-style: normal;
-}
+.text {font-style: normal;}
 
 .WDXL {
     font-family: "Monoton", sans-serif;
     font-weight: 400;
-    font-style: normal;
-}
-
-
-/*Размеры заголовков*/
-h1 { font-size: 64px; }
-h2 { font-size: 48px; }
-h3 { font-size: 32px; }
-h4 { font-size: 26px; }
-h5 { font-size: 24px; }
-h6 { font-size: 20px; }
-
-h2{margin-bottom: 40px}
-
-
-
+    font-style: normal;}
 
 
 /*Уведомление*/
@@ -342,22 +324,7 @@ button.deactivate{
 
 
 /*Карточки*/
-.cardsContainer {
-    gap: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    margin-bottom: 120px;
-}
 
-.card {
-    display: flex;
-    flex-direction: column;
-    min-height: 300px;
-    max-width: 300px;
-    background-color: var(--card-color);
-    border-radius: 12px;
-    padding: 10px;
-}
 
 .price > .card_product {
     width: 300px;
