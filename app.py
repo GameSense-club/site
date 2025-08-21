@@ -7,7 +7,8 @@ PUBLIC_ROUTES = {
     'static',
     'login_pc',
     'reset_password',
-    'price'
+    'price',
+    'index'
 }
 
 @app.before_request
@@ -17,9 +18,9 @@ def require_login():
 
     token = request.cookies.get('jwt_token')
     if not token:
-        return redirect(url_for('login'))
+        return redirect(url_for('/'))
 
-@app.route('/')
+@app.route('/shop')
 def index():
     return render_template("shop.html")
 
