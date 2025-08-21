@@ -1,13 +1,19 @@
 from flask import Flask, render_template, send_from_directory, request, redirect, url_for, make_response
+from landing import landing_bp  # Импортируйте ваш blueprint
 
 app = Flask(__name__)
 
+# Зарегистрируйте blueprint
+app.register_blueprint(landing_bp)
 PUBLIC_ROUTES = {
     'login',
     'static',
     'login_pc',
     'reset_password',
-    'price'
+    'price',
+    'landing.index',
+    'landing.promotions',
+    'landing.static'
 }
 
 @app.before_request
@@ -17,12 +23,11 @@ def require_login():
 
     token = request.cookies.get('jwt_token')
     if not token:
-        return redirect(url_for('login'))
+        return redirect(url_for('landing.index'))
 
-@app.route('/')
+@app.route('/shop')
 def index():
     return render_template("shop.html")
-
 
 @app.route('/profile')
 def profile():
@@ -65,7 +70,6 @@ def reset_password(token):
 @app.route('/price')
 def price():
     return render_template("price.html")
-
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=5001)
