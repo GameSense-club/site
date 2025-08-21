@@ -13,7 +13,8 @@ PUBLIC_ROUTES = {
     'price',
     'landing.index',
     'landing.promotions',
-    'landing.static'
+    'landing.static',
+    'shop'
 }
 
 @app.before_request

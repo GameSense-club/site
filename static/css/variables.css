@@ -1,12 +1,37 @@
 :root {
-	--background-color: #232046;
-	--text-color: #f1efff;
-	--button-color: #B3A9FF;
-	--button-border-color: #8e80ff;
-	--card-color: #17172F;
-	--transperent: rgba(255, 255, 255, 0.5);
-	--employ: rgb(44.99, 239.06, 15.938, 0.3);
-	--fix: rgb(211.87, 239.06, 15.937, 0.3);
+    /* Основные цвета - фиолетовая схема как в landing */
+    --purple-dark: #3a2d5d;
+    --purple-medium: #5e4b8b;
+    --purple-light: #7d6ba0;
+    --purple-accent: #9d8ac7;
+    --gray-dark: #2a2a2a;
+    --gray-medium: #4a4a4a;
+    --gray-light: #e0e0e0;
+    --white: #ffffff;
+    
+    /* Градиенты */
+    --gradient-purple: linear-gradient(135deg, var(--purple-medium), var(--purple-accent));
+    --gradient-gray: linear-gradient(135deg, var(--gray-medium), var(--gray-dark));
+    
+    /* Шрифты */
+    --font-main: 'Montserrat', sans-serif;
+    --font-heading: 'Orbitron', sans-serif;
+    
+    /* Тени и переходы */
+    --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.2);
+    --transition: all 0.3s ease;
+    
+    /* Цвета для совместимости со старым кодом */
+    --background-color: var(--gray-dark);
+    --card-color: var(--purple-dark);
+    --text-color: var(--gray-light);
+    --accent-color: var(--purple-accent);
+    --border-color: var(--purple-medium);
+    --hover-color: var(--purple-light);
+    --error-color: #ff6b6b;
+    --success-color: #51cf66;
+    --warning-color: #ffd43b;
 }
 
 .employ{background-color: var(--employ);}

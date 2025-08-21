@@ -4,15 +4,34 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
-function showNotification(message) {
+function showNotification(message, type = 'info') {
     const notification = document.getElementById('custom-notification');
     notification.textContent = message;
-    notification.className = 'notification show';
+    
+    // Удаляем старые классы
+    notification.className = 'notification';
+    
+    // Добавляем классы в зависимости от типа
+    switch(type) {
+        case 'success':
+            notification.classList.add('notification-success');
+            break;
+        case 'error':
+            notification.classList.add('notification-error');
+            break;
+        case 'warning':
+            notification.classList.add('notification-warning');
+            break;
+        default:
+            notification.classList.add('notification-info');
+    }
+    
+    notification.classList.add('show');
 
-    // Скрыть через 3 секунды
+    // Скрыть через 4 секунды
     setTimeout(() => {
-        notification.className = 'notification';
-    }, 3000);
+        notification.classList.remove('show');
+    }, 4000);
 }
 
 function showNotificationTime() {

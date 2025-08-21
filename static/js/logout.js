@@ -36,6 +36,9 @@ async function logout() {
     // Удаление данных из localStorage
     localStorage.removeItem("user");
 
-    // Перезагрузка страницы или переход на главную/авторизацию
-    window.location.href = "/"; // можно заменить на нужный URL
+    // Перенаправление на страницу входа после выхода
+    showNotification("Вы успешно вышли из аккаунта", "success");
+    setTimeout(() => {
+        window.location.href = "/login";
+    }, 1000);
 }

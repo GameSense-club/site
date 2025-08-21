@@ -19,8 +19,11 @@
 .card_product {
     position: relative;
     overflow: hidden;
-    border-radius: 12px;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 16px;
+    background: var(--gradient-gray);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
     z-index: 1;
     transform: translateY(0);
     animation: cardAppear 0.6s ease-out forwards;
@@ -29,26 +32,36 @@
 
 /* Анимация появления */
 @keyframes cardAppear {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
+    from { 
+        opacity: 0; 
+        transform: translateY(30px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    }
 }
 
 /* Пульсация (волновой эффект) */
 @keyframes cardPulse {
     0%, 100% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
+        box-shadow: var(--shadow);
     }
     50% {
         transform: scale(1.02);
-        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        box-shadow: var(--shadow-lg);
     }
 }
 
 /* Градиентное свечение */
 @keyframes glowEffect {
-    0%, 100% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
+    0%, 100% { 
+        background-position: 0% 50%; 
+    }
+    50% { 
+        background-position: 100% 50%; 
+    }
 }
 
 /* Применение анимаций после загрузки */
@@ -69,12 +82,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(125deg, 
-        #ff9a9e55, 
-        #fad0c455, 
-        #a1c4fd55, 
-        #c2e9fb55, 
-        #ffecd255);
+    background: var(--gradient-purple);
     background-size: 300% 300%;
     z-index: -1;
     opacity: 0;
@@ -85,8 +93,71 @@
 /* Эффекты при наведении */
 .card_product:hover {
     transform: translateY(-5px) scale(1.03);
+    border-color: var(--purple-accent);
+    box-shadow: var(--shadow-lg);
 }
+
 .card_product:hover::after {
-    opacity: 0.7;
+    opacity: 0.1;
     animation-play-state: running;
+}
+
+/* Стили для кнопок в карточках */
+.card_product .btn {
+    background: var(--gradient-purple);
+    color: var(--white);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-family: var(--font-main);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.card_product .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.card_product .btn-outline {
+    background: transparent;
+    color: var(--purple-accent);
+    border: 2px solid var(--purple-accent);
+}
+
+.card_product .btn-outline:hover {
+    background: var(--purple-accent);
+    color: var(--white);
+}
+
+/* Стили для цен */
+.card_product .price {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--purple-accent);
+    text-align: center;
+    margin: 15px 0;
+}
+
+.card_product .title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.card_product .description {
+    color: var(--gray-light);
+    text-align: center;
+    line-height: 1.6;
+    margin-bottom: 20px;
 }

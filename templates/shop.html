@@ -1,12 +1,27 @@
 {% extends "base.html" %}
 {% block title %}Магазин{% endblock %}
 {% block content %}
-<button id="exit"><h5 class="balance"></h5><h5>₽</h5></button>
-<section>
-	<div id="cardsContainer" class="cardsContainer"></div>
-	<h2>#Сейчас не доступно</h2>
-	<div id="cardsContainerBlock" class="cardsContainer"></div>
-</section>
+<div class="container">
+    <div class="shop-header animate-fade-in">
+        <h1 class="text-gradient">Магазин GameSense</h1>
+        <p>Выберите подходящий тариф для игры</p>
+    </div>
+    
+    <button id="exit" class="btn btn-primary btn-lg animate-fade-in animate-delay-1">
+        <i class="iconoir-wallet"></i>
+        <span class="balance"></span>₽
+    </button>
+    
+    <section class="shop-section animate-fade-in animate-delay-2">
+        <h2 class="section-title">Доступные тарифы</h2>
+        <div id="cardsContainer" class="cardsContainer"></div>
+    </section>
+    
+    <section class="shop-section animate-fade-in animate-delay-3">
+        <h2 class="section-title">Сейчас не доступно</h2>
+        <div id="cardsContainerBlock" class="cardsContainer"></div>
+    </section>
+</div>
 {% endblock %}
 {% block scripts %}
 <script src="{{ url_for('static', filename='js/time_packages.js') }}" defer></script>
