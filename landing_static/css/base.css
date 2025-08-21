@@ -1,0 +1,57 @@
+:root {
+    --purple-dark: #3a2d5d;
+    --purple-medium: #5e4b8b;
+    --purple-light: #7d6ba0;
+    --purple-accent: #9d8ac7;
+    --gray-dark: #2a2a2a;
+    --gray-medium: #4a4a4a;
+    --gray-light: #e0e0e0;
+    --white: #ffffff;
+    
+    --gradient-purple: linear-gradient(135deg, var(--purple-medium), var(--purple-accent));
+    --gradient-gray: linear-gradient(135deg, var(--gray-medium), var(--gray-dark));
+    
+    --font-main: 'Montserrat', sans-serif;
+    --font-heading: 'Orbitron', sans-serif;
+    
+    --shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.2);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--gray-light);
+    background-color: var(--gray-dark);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.text-gradient {
+    background: var(--gradient-purple);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.no-select {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+

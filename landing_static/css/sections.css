@@ -1,0 +1,39 @@
+/* Generic sections */
+.section {
+    padding: 100px 0;
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 42px;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: var(--gradient-purple);
+}
+
+.section-subtitle {
+    font-size: 18px;
+    color: var(--gray-light);
+    opacity: 0.8;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+

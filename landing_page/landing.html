@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameSense | Премиум гейминг пространство</title>
+    <link rel="stylesheet" href="{{ url_for('landing.static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('landing.static', filename='css/animations.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="loader">
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+            <div class="loader-square"></div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="/" class="logo">
+                <div class="gallery-grid">
+                    <div class="logo-icon">
+                        <img src="{{ url_for('landing.static', filename='images/gallery/logo.jpg') }}">
+                    </div>
+                    <span class="logo-text">GameSense</span>
+                </a>
+
+                <nav class="nav">
+                    <ul>
+                        <li><a href="index.html" class="active">Главная</a></li>
+                        <li><a href="https://game-sense.ru/price">Тарифы</a></li>
+                        <li><a href="#gallery">Галерея</a></li>
+                        <li><a href="#tournaments">Турниры</a></li>
+                        <li><a href="/promotions">Акции</a></li>
+                        <li><a href="#contact">Контакты</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-cta">
+                    <a href="#" class="btn btn-primary">Забронировать</a>
+                </div>
+
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </header>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu">
+            <div class="mobile-menu-close">
+                <i class="fas fa-times"></i>
+            </div>
+            <ul>
+                <li><a href="index.html" class="active">Главная</a></li>
+                <li><a href="#pricing">Тарифы</a></li>
+                <li><a href="#gallery">Галерея</a></li>
+                <li><a href="#tournaments">Турниры</a></li>
+                <li><a href="#promo">Акции</a></li>
+                <li><a href="#contact">Контакты</a></li>
+            </ul>
+            <a href="#" class="btn btn-primary">Забронировать</a>
+        </div>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div id="particles-js"></div>
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title animate-fade-up no-select">Премиум <span class="text-gradient">гейминг пространство</span></h1>
+                    <p class="hero-subtitle animate-fade-up animate-delay-1 no-select">Лучшее оборудование. Максимальный комфорт. Незабываемая атмосфера.</p>
+                    <div class="hero-buttons animate-fade-up animate-delay-2">
+                        <a href="#" class="btn btn-primary btn-lg">Забронировать место</a>
+                        <a href="#specs" class="btn btn-outline btn-lg">Наши ПК</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-scroll-btn">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="section features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Почему выбирают нас</h2>
+                    <p class="section-subtitle">Мы создали идеальное пространство для геймеров</p>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card animate-fade-in">
+                        <div class="feature-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3 class="feature-title">Мощные ПК</h3>
+                        <p class="feature-text">RTX 3060ti, i5-12400f, 16GB, 280hz мониторы</p>
+                    </div>
+
+                    <div class="feature-card animate-fade-in animate-delay-1">
+                        <div class="feature-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h3 class="feature-title">Скоростной интернет</h3>
+                        <p class="feature-text">Гигабитный канал с минимальным пингом</p>
+                    </div>
+
+                    <div class="feature-card animate-fade-in animate-delay-2">
+                        <div class="feature-icon">
+                            <i class="fas fa-couch"></i>
+                        </div>
+                        <h3 class="feature-title">Комфорт</h3>
+                        <p class="feature-text">Эргономичные кресла и продуманное пространство</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section gallery">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Наше пространство</h2>
+                    <p class="section-subtitle">Убедитесь в атмосфере лично</p>
+                </div>
+
+                <div class="gallery-grid">
+                    <!-- Пример одного элемента галереи -->
+                    <div class="gallery-item animate-scale-in">
+                        <img src="{{ url_for('landing.static', filename='images/gallery/pc-setup-1.jpg') }}" alt="Игровая зона">
+                        <div class="gallery-overlay">
+                            <h3>Игровая зона</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item animate-scale-in">
+                        <img src="{{ url_for('landing.static', filename='images/gallery/pc-setup-2.jpg') }}" alt="Игровая зона">
+                        <div class="gallery-overlay">
+                            <h3>Игровая зона</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item animate-scale-in">
+                        <img src="{{ url_for('landing.static', filename='images/gallery/pc-setup-3.jpg') }}" alt="Зона PS5">
+                        <div class="gallery-overlay">
+                            <h3>Зона PS5</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item animate-scale-in">
+                        <img src="{{ url_for('landing.static', filename='images/gallery/pc-setup-4.jpg') }}" alt="VIP зона">
+                        <div class="gallery-overlay">
+                            <h3>VIP зона</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item animate-scale-in">
+                        <img src="{{ url_for('landing.static', filename='images/gallery/pc-setup-5.jpg') }}" alt="Обеденная зона">
+                        <div class="gallery-overlay">
+                            <h3>Обеденная зона</h3>
+                        </div>
+                    </div>
+                    <div class="gallery-item animate-scale-in">
+                        <img src="{{ url_for('landing.static', filename='images/gallery/pc-setup-6.jpg') }}" alt="Игровая зона">
+                        <div class="gallery-overlay">
+                            <h3>Игровая зона</h3>
+                        </div>
+                    </div>
+                    <!-- Добавьте больше элементов по аналогии -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact" class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h3 class="footer-title">GameSense PC Club</h3>
+                        <p>Премиальное гейминг пространство с лучшим оборудованием и атмосферой.</p>
+                        <div class="social-links">
+                            <!-- Пример одной социальной сети -->
+                            <a href="https://vk.com/gamesensemgn?from=groups" target="_blank"><i class="fab fa-vk"></i></a>
+                            <a href="https://t.me/GameSenseLounge" target="_blank"><i class="fab fa-telegram"></i></a>
+                            <!-- Добавьте больше по аналогии -->
+                        </div>
+                    </div>
+
+                    <div class="footer-col">
+                        <h3 class="footer-title">Часы работы</h3>
+                        <ul class="footer-list">
+                            <li><i class="far fa-clock"></i>Круглосуточно</li>
+
+                        </ul>
+                    </div>
+
+                    <div class="footer-col">
+                        <h3 class="footer-title">Контакты</h3>
+                        <ul class="footer-list">
+                            <li><i class="fas fa-map-marker-alt"></i> г. Магнитогорск, ул. газеты Правда, 59</li>
+                            <li><i class="fas fa-phone"></i> +7 (909) 097-82-32</li>
+                            <li><i class="fas fa-envelope"></i> gamesense.ghost@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom">
+                    <p>&copy; 2023 GameSense PC Club. Все права защищены.</p>
+                    <a href="#" class="footer-link">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <script src="{{ url_for('landing.static', filename='js/script.js') }}"></script>
+    </body>
+    </html>
