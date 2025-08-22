@@ -1,18 +1,21 @@
 @import url("cards.css");
 @import url("variables.css");
 @import url("header.css");
+@import url("old-header.css");
 @import url("menus.css");
 @import url("mobile.css");
 @import url("pc.css");
+@import url("forms.css");
+@import url("animations.css");
 
 /*Сброс и глобальные стили*/
 * {
     padding: 0;
     margin: 0;
-    font-family: "Inter", sans-serif;
+    font-family: var(--font-main);
     font-optical-sizing: auto;
     font-style: normal;
-    transition: 300ms;
+    transition: var(--transition);
     box-sizing: border-box;
 }
 
@@ -24,16 +27,39 @@ input[type="number"]::-webkit-inner-spin-button {
 
 body {
     background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden;
     z-index: -10;
 }
 
 .none{display: none}
 
+/* Контейнер для основного контента */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
 
+/* Градиентный текст */
+.text-gradient {
+    background: var(--gradient-purple);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.no-select {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
 
 body > main {
     width: calc(100% - 300px);
-    background: url('../lib/back.webp'), linear-gradient(135deg, #2D265C, #0F1021);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -41,7 +67,7 @@ body > main {
     display: flex;
     flex-direction: column;
     border-radius: 24px 0 0 24px;
-    box-shadow: -4px 0px 20px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: var(--shadow-lg);
     z-index: 100;
     margin-left: auto;
     padding: 40px 20px;
@@ -70,26 +96,186 @@ section{
 	align-items: center;
 }
 
-
-
 h1, h2, h3, h4, h5, h6, p, a, button {color: var(--text-color);}
 
 .text {font-style: normal;}
 
 .WDXL {
-    font-family: "Monoton", sans-serif;
-    font-weight: 400;
-    font-style: normal;}
-
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-style: normal;
+}
 
 /*Уведомление*/
+
+/* Стили для кнопок */
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-main);
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background: var(--gradient-purple);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--purple-accent);
+    border: 2px solid var(--purple-accent);
+}
+
+.btn-outline:hover {
+    background: var(--purple-accent);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.btn-lg {
+    padding: 16px 32px;
+    font-size: 1.1rem;
+}
+
+.flat-button {
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 8px;
+    border-radius: 4px;
+    transition: var(--transition);
+}
+
+.flat-button:hover {
+    background: var(--purple-medium);
+    color: var(--white);
+}
+
+/* Стили для строк */
+.row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Стили для секций */
+.section-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* Стили для деактивированных элементов */
+.deactivate {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+.deactivate:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Стили для тултипов */
+.tooltip-button {
+    position: relative;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--card-color);
+    color: var(--text-color);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8rem;
+    border: 1px solid var(--border-color);
+}
+
+.tooltip-button:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Стили для иконок */
+.icon {
+    font-size: 1.2rem;
+}
+
+/* Стили для заголовков */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text-color);
+}
+
+/* Стили для ссылок */
+a {
+    color: var(--purple-accent);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--purple-light);
+    text-decoration: underline;
+}
+
+/* Стили для разделителей */
+hr {
+    border: none;
+    height: 1px;
+    background: var(--border-color);
+    margin: 15px 0;
+}
+
+/* Стили для основного контента */
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+/* Стили для уведомлений */
 .notification {
     visibility: hidden;
     min-width: 250px;
     background-color: var(--card-color);
     color: var(--text-color);
     text-align: center;
-    border-radius: 4px;
+    border-radius: 8px;
     padding: 12px;
     position: fixed;
     z-index: 9999;
@@ -98,11 +284,199 @@ h1, h2, h3, h4, h5, h6, p, a, button {color: var(--text-color);}
     transform: translateX(-50%);
     opacity: 0;
     transition: opacity 0.5s, visibility 0.5s;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
 }
-.full>.notification{left: 50%;}
+
 .notification.show {
     visibility: visible;
     opacity: 1;
+}
+
+/* Стили для страницы цен */
+.price-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.price-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.price-header p {
+    font-size: 1.2rem;
+    color: var(--purple-light);
+    opacity: 0.8;
+}
+
+.price-section {
+    margin-bottom: 60px;
+}
+
+.contact-section {
+    margin-bottom: 60px;
+}
+
+.contact-card {
+    background: var(--gradient-gray);
+    border-radius: 16px;
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    background: var(--gray-dark);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: var(--purple-accent);
+}
+
+.contact-item span {
+    font-size: 1.1rem;
+    color: var(--text-color);
+}
+
+/* Стили для профиля */
+.profile-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.profile-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.profile-header p {
+    font-size: 1.2rem;
+    color: var(--purple-light);
+    opacity: 0.8;
+}
+
+.profile-section {
+    margin-bottom: 60px;
+}
+
+/* Стили для магазина */
+.shop-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.shop-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.shop-header p {
+    font-size: 1.2rem;
+    color: var(--purple-light);
+    opacity: 0.8;
+}
+
+.shop-section {
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 30px;
+    color: var(--text-color);
+}
+
+#exit {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--gradient-purple);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    padding: 15px 25px;
+    font-family: var(--font-main);
+    font-weight: 500;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+#exit:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+}
+
+#exit i {
+    font-size: 1.2rem;
+}
+
+/* Стили для заголовков страниц */
+#namePage {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+    background: var(--gradient-purple);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-in {
+    animation: slideIn 0.6s ease-out;
 }
 
 #out_time{
