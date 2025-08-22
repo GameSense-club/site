@@ -5,6 +5,10 @@ on:
     tags:
       - '[0-9]+.[0-9]+.[0-9]+'
   workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Версия для деплоя (например: 1.2.3)'
+        required: true
 
 jobs:
   deploy:
@@ -15,40 +19,42 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Проверка формата тега (для автоматического запуска)
-        if: github.event_name == 'push'
-        id: check-tag
+      - name: Определение тега
+        id: get-tag
         run: |
-          TAG_NAME=${GITHUB_REF#refs/tags/v}
-          TAG_NAME=${TAG_NAME#refs/tags/}
+          if [ "${{ github.event_name }}" = "push" ]; then
+            TAG_NAME=${GITHUB_REF#refs/tags/v}
+            TAG_NAME=${TAG_NAME#refs/tags/}
+          else
+            TAG_NAME="${{ github.event.inputs.tag }}"
+          fi
           
+          # Проверка формата тега
           if [[ $TAG_NAME =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "TAG=$TAG_NAME" >> $GITHUB_OUTPUT
             echo "VALID_TAG=true" >> $GITHUB_OUTPUT
           else
             echo "Версия $TAG_NAME НЕ соответствует формату x.x.x - деплой отменен"
             echo "VALID_TAG=false" >> $GITHUB_OUTPUT
           fi
-
       - name: Настройка SSH
-        if: github.event_name == 'workflow_dispatch' || steps.check-tag.outputs.VALID_TAG == 'true'
+        if: steps.get-tag.outputs.VALID_TAG == 'true'
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H ${{ secrets.SERVER_IP }} >> ~/.ssh/known_hosts
-
       - name: Очистка старого .env
-        if: github.event_name == 'workflow_dispatch' || steps.check-tag.outputs.VALID_TAG == 'true'
+        if: steps.get-tag.outputs.VALID_TAG == 'true'
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SERVER_IP }}
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            rm -rf /tmp/.env  # Удаляем, если это директория
-
+            rm -rf /tmp/.env
       - name: Отправка .production
-        if: github.event_name == 'workflow_dispatch' || steps.check-tag.outputs.VALID_TAG == 'true'
+        if: steps.get-tag.outputs.VALID_TAG == 'true'
         uses: appleboy/scp-action@v1
         with:
           host: ${{ secrets.SERVER_IP }}
@@ -58,7 +64,7 @@ jobs:
           target: "/tmp/.env"
 
       - name: Деплой
-        if: github.event_name == 'workflow_dispatch' || steps.check-tag.outputs.VALID_TAG == 'true'
+        if: steps.get-tag.outputs.VALID_TAG == 'true'
         uses: appleboy/ssh-action@v1
         with:
           host: ${{ secrets.SERVER_IP }}
@@ -66,4 +72,4 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             chmod +x ~/deploy.sh
-            ~/deploy.sh ${{ github.repository_owner }} ${{ github.event.repository.name }}
+            ~/deploy.sh ${{ github.repository_owner }} ${{ github.event.repository.name }} ${{ steps.get-tag.outputs.TAG }}
