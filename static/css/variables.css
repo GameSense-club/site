@@ -1,7 +1,19 @@
 :root {
-	--background-color: #232046;
-	--text-color: #f1efff;
-	--button-color: #B3A9FF;
+	--purple-dark: #3a2d5d;
+    --purple-medium: #5e4b8b;
+    --purple-light: #7d6ba0;
+    --purple-accent: #9d8ac7;
+    --gray-dark: #2a2a2a;
+    --gray-medium: #4a4a4a;
+    --gray-light: #e0e0e0;
+    --white: #ffffff;
+
+    --gradient-purple: linear-gradient(135deg, var(--purple-medium), var(--purple-accent));
+    --gradient-gray: linear-gradient(135deg, var(--gray-medium), var(--gray-dark));
+
+	--background-color: var(--gray-dark);
+	--text-color: var(--white);
+	--button-color: var(--gradient-purple);
 	--button-border-color: #8e80ff;
 	--card-color: #17172F;
 	--transperent: rgba(255, 255, 255, 0.5);

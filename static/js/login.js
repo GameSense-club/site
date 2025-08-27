@@ -83,8 +83,8 @@ async function handleRegisterSubmit(e) {
         form.first_name.classList.remove("none");
         form.last_name.classList.remove("none");
 
-        loginBtn.querySelector("h5").classList.add("iconoir-arrow-left-circle-solid");
-        loginBtn.querySelector("h5").textContent = "";
+        loginBtn.classList.add("iconoir-arrow-left-circle-solid");
+        loginBtn.textContent = "";
         loginBtn.removeAttribute('style');
         registerBtn.style.flexGrow = '1';
 
@@ -124,8 +124,8 @@ async function handleRegisterSubmit(e) {
         form.first_name.classList.add("none");
         form.last_name.classList.add("none");
 
-        loginBtn.querySelector("h5").classList.remove("iconoir-arrow-left-circle-solid");
-        loginBtn.querySelector("h5").textContent = "Войти";
+        loginBtn.classList.remove("iconoir-arrow-left-circle-solid");
+        loginBtn.textContent = "Войти";
         registerBtn.removeAttribute('style');
         loginBtn.style.flexGrow = '1';
 

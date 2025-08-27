@@ -1,83 +1,41 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Вход</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+{% extends "base.html" %}
+{% block title %}Вход{% endblock %}
+{% block content %}
+<div id="overlay"></div>
+<section class="center menu" id="reset-password">
+	<div class="column">
+		<h4>Введите почту для восстановления пароля:</h4>
+		<form id="reset-password">  <!-- Убедитесь, что ID совпадает -->
+			<input type="email" name="email" placeholder="E-mail">  <!-- Обязательно добавьте `name` -->
+			<button type="submit"><h4>Отправить</h4></button>
+		</form>
+	</div>
+</section>
 
-	<!-- Подключение CSS -->
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/colors.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/mobile.css') }}">
-	<link rel="stylesheet" href="{{ url_for('static', filename='css/menu.css') }}">
-
-	<meta name="description" content="GameSense — современный компьютерный клуб с мощными ПК и комфортной игровой зоной. Играйте в топовые игры, участвуйте в киберспортивных турнирах и общайтесь с единомышленниками. Лучшее место для геймеров!">
-    <meta name="keywords" content="GameSense, Game Sense, игровой клуб, ПК клуб, компьютерный клуб, киберспорт, киберспортивный клуб, игровая зона, PC gaming, киберклуб, гейминг, компьютерные игры, игры на ПК">
-    <meta name="author" content="falbue">
-    <meta name="robots" content="index, nofollow">
-    <meta name="mobile-web-app-capable" content="yes">
-
-	<script src="{{ url_for('static', filename='js/login.js') }}" defer></script>
-	<script src="{{ url_for('static', filename='js/update-user.js') }}" defer></script>
-	<script src="{{ url_for('static', filename='js/ghonse.js') }}" defer></script>
-	<script src="{{ url_for('static', filename='js/notification.js') }}" defer></script>
-	<script src="{{ url_for('static', filename='js/menu.js') }}?v=1.0.1" defer></script>
-	<script src="{{ url_for('static', filename='js/reset-password.js') }}?v=1.0.1" defer></script>
-	<script src="{{ url_for('static', filename='js/loading.js') }}?v=1.0.1" defer></script>
-
-	<!-- Подключение Google Fonts -->
-	<link rel="preconnect" href="https://fonts.googleapis.com ">
-	<link rel="preconnect" href="https://fonts.gstatic.com " crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter :ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
-
-	<!-- Подключение иконок -->
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css" />
-
-	<!-- Фавиконка -->
-	<link rel="icon" href="{{ url_for('static', filename='lib/ghonse.svg') }}" type="image/x-icon">
-
-	<!-- Цвет темы -->
-	<meta name="theme-color" content="#19132E">
-</head>
-<body>
-	<div id="overlay"></div>
-	<section class="center menu" id="reset-password">
-		<div class="column">
-			<h4>Введите почту для восстановления пароля:</h4>
-			<form id="reset-password">  <!-- Убедитесь, что ID совпадает -->
-				<input type="email" name="email" placeholder="E-mail">  <!-- Обязательно добавьте `name` -->
-				<button type="submit"><h4>Отправить</h4></button>
+<main class="full">
+	<h4 id="custom-notification" class="notification"></h4>
+	<section class="section-login">
+		<div>
+			<div class="logo">
+				<img id="ghonse" src="{{ url_for('static', filename='lib/ghonse.svg') }}" alt="ghonse">
+				<h1 class="WDXL">Game Sense</h1>
+			</div>
+			<form id="loginForm">
+				<input type="text" id="first_name" placeholder="Имя:" required class="none">
+				<input type="text" id="last_name" placeholder="Фамилия:" required class="none">
+				<input type="text" name="identifier" placeholder="E-mail:" required>
+				<input type="password" name="password" placeholder="Пароль:" required>
+				<div class="row">
+					<button type="submit" style="flex-grow: 1;">Войти</button>
+					<button>Регистрация</button>
+				</div>
+				<a data-menu="reset-password"><h6>Забыли пароль?</h6></a>
 			</form>
 		</div>
+		<img src="{{ url_for('static', filename='lib/qrcode.svg') }}" alt="QR Code" class="qr-code">
 	</section>
-
-	<main class="full">
-		<h4 id="custom-notification" class="notification"></h4>
-		<section class="section-login">
-			<div>
-				<div class="logo">
-					<img id="ghonse" src="{{ url_for('static', filename='lib/ghonse.svg') }}" alt="ghonse">
-					<h1 class="WDXL">Game Sense</h1>
-				</div>
-				<form id="loginForm">
-					<input type="text" id="first_name" placeholder="Имя:" required class="none">
-					<input type="text" id="last_name" placeholder="Фамилия:" required class="none">
-					<input type="text" name="identifier" placeholder="E-mail:" required>
-					<input type="password" name="password" placeholder="Пароль:" required>
-					<div class="row">
-						<button type="submit" style="flex-grow: 1;"><h5>Войти</h5></button>
-						<button><h5>Регистрация</h5></button>
-					</div>
-					<a data-menu="reset-password"><h6>Забыли пароль?</h6></a>
-				</form>
-			</div>
-			<img src="{{ url_for('static', filename='lib/qrcode.svg') }}" alt="QR Code" class="qr-code">
-		</section>
-	</main>
-</body>
-</html>
+</main>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/login.js') }}" defer></script>
+{% endblock %}

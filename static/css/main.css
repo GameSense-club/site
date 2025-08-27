@@ -33,10 +33,6 @@ body {
 
 body > main {
     width: calc(100% - 300px);
-    background: url('../lib/back.webp'), linear-gradient(135deg, #2D265C, #0F1021);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -51,6 +47,8 @@ body > .full {
     width: 100%;
     border-radius: 0;
     padding: 0 20px;
+    background-color: var(--background-color);
+    z-index: 100;
 }
 
 section{
@@ -217,13 +215,14 @@ a:hover {
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-button,
-.button {
+button, .button {
     box-sizing: border-box;
-    border-radius: 10px;
-    padding: 10px;
-    background-color: var(--button-color);
+    border-radius: 24px;
+    padding: 12px 24px;
+    font-size: 20px;
+    background: var(--button-color);
     border: none;
+    font-weight: bold;
 }
 
 button:hover,
