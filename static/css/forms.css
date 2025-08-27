@@ -614,15 +614,17 @@
 
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 3rem;
+        font-size: 2.5rem;
     }
     
     .hero-subtitle {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     
     .form-card {
-        padding: 35px 25px;
+        padding: 30px 20px;
+        margin: 0 20px;
+        max-width: 100%;
     }
     
     .form-row {
@@ -631,7 +633,8 @@
     
     .form-actions {
         flex-direction: column;
-        gap: 10px;
+        gap: 15px;
+        align-items: center;
     }
     
     .form-actions .form-link {
@@ -640,23 +643,25 @@
     }
     
     .logo h1, .logo h2 {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     
     .logo img {
-        width: 80px;
-        height: 80px;
+        width: 60px;
+        height: 60px;
     }
     
     .qr-code {
-        width: 60px;
-        height: 60px;
-        bottom: 20px;
-        right: 20px;
+        height: 40vh;
+        margin: 20px;
+        position: static;
+        width: auto;
     }
     
     .feature-item {
-        padding: 18px 20px;
+        padding: 15px;
+        width: 100%;
+        text-align: center;
     }
     
     .feature-item i {
@@ -664,21 +669,35 @@
     }
     
     .feature-item span {
-        font-size: 1.1rem;
+        font-size: 1rem;
+    }
+    
+    .hero-content {
+        flex-direction: column;
+        gap: 30px;
+        text-align: center;
+    }
+    
+    .hero-features {
+        flex-direction: column;
+        gap: 15px;
     }
 }
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 1.8rem;
+        line-height: 1.2;
     }
     
     .hero-subtitle {
-        font-size: 1.1rem;
+        font-size: 0.9rem;
+        line-height: 1.4;
     }
     
     .feature-item {
-        padding: 15px 18px;
+        padding: 12px;
+        font-size: 0.9rem;
     }
     
     .feature-item i {
@@ -686,39 +705,67 @@
     }
     
     .feature-item span {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     
     .form-card {
-        padding: 30px 20px;
+        padding: 20px 15px;
+        margin: 0 10px;
     }
     
     .logo img {
-        width: 70px;
-        height: 70px;
+        width: 50px;
+        height: 50px;
     }
     
     .logo h1, .logo h2 {
-        font-size: 2.2rem;
+        font-size: 1.6rem;
     }
     
     .form-input {
-        padding: 16px 18px;
-        font-size: 1rem;
+        padding: 14px 16px;
+        font-size: 16px; /* Предотвращает зум на iOS */
     }
     
     .form-button {
-        padding: 16px 18px;
-        font-size: 1rem;
+        padding: 14px 16px;
+        font-size: 0.9rem;
     }
     
     .form-actions {
         flex-direction: column;
-        gap: 8px;
+        gap: 12px;
+        align-items: center;
     }
     
     .form-actions .form-link {
         padding: 10px 14px;
         font-size: 0.9rem;
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .home-link {
+        width: 100%;
+        justify-content: center;
+        font-size: 0.9rem;
+        padding: 10px 15px;
+    }
+    
+    .qr-code {
+        height: 35vh;
+        margin: 15px 10px;
+    }
+    
+    .hero-content {
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+        padding: 0 10px;
+    }
+    
+    .hero-features {
+        flex-direction: column;
+        gap: 12px;
     }
 }

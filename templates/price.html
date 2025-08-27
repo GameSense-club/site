@@ -28,13 +28,48 @@
 <body>
 	<!-- Simple back to home button (header removed) -->
 	<div class="container" style="padding-top: 20px; display: flex; justify-content: flex-end;">
-		<a href="/" class="btn btn-outline" style="gap:8px;">
+		<a href="/" class="btn btn-outline home-link" style="gap:8px;">
 			<i class="fas fa-arrow-left"></i>
 			На главную
 		</a>
 	</div>
 
 	<main class="full" style="padding-top: 20px;">
+		<!-- Адаптивная кнопка "На главную" -->
+		<style>
+			@media (max-width: 768px) {
+				.home-link {
+					width: 100%;
+					justify-content: center;
+					margin-bottom: 20px;
+				}
+				
+				.container {
+					padding: 0 15px;
+				}
+			}
+			
+			@media (max-width: 480px) {
+				.home-link {
+					font-size: 0.9rem;
+					padding: 10px 15px;
+				}
+				
+				.container {
+					padding: 0 10px;
+				}
+				
+				.price-header h1 {
+					font-size: 1.8rem;
+					line-height: 1.2;
+				}
+				
+				.price-header p {
+					font-size: 0.9rem;
+					line-height: 1.4;
+				}
+			}
+		</style>
 		<div class="container">
 			<div class="price-header animate-fade-in">
 				<h1 class="text-gradient">Тарифы GameSense</h1>

@@ -36,7 +36,7 @@
                 <nav class="nav">
                     <ul>
                         <li><a href="index.html" class="active">Главная</a></li>
-                        <li><a href="https://game-sense.ru/price">Тарифы</a></li>
+                        <li><a href="/price">Тарифы</a></li>
                         <li><a href="#gallery">Галерея</a></li>
                         <li><a href="#tournaments">Турниры</a></li>
                         <li><a href="/promotions">Акции</a></li>
@@ -61,10 +61,10 @@
             </div>
             <ul>
                 <li><a href="index.html" class="active">Главная</a></li>
-                <li><a href="#pricing">Тарифы</a></li>
+                <li><a href="/price">Тарифы</a></li>
                 <li><a href="#gallery">Галерея</a></li>
                 <li><a href="#tournaments">Турниры</a></li>
-                <li><a href="#promo">Акции</a></li>
+                <li><a href="/promotions">Акции</a></li>
                 <li><a href="#contact">Контакты</a></li>
             </ul>
             <a href="/login" class="btn btn-primary">Забронировать</a>
@@ -220,5 +220,46 @@
 
         <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
         <script src="{{ url_for('landing.static', filename='js/script.js') }}"></script>
+        
+        <script>
+            const style = document.createElement('style');
+            style.textContent = `@media (max-width: 768px){ .header-cta{ display:none; } .header .container{position:relative;display:block;width:100%;min-height:56px;} .mobile-menu-btn{position:absolute;left:12px;top:12px;display:flex;} .header .logo{position:absolute;right:12px;top:8px;display:flex;align-items:center;gap:8px;white-space:nowrap;} .header .logo .gallery-grid{display:flex;align-items:center;gap:8px;} .header .nav{display:none;} }`;
+            document.head.appendChild(style);
+            // Мобильное меню для landing
+            document.addEventListener('DOMContentLoaded', function() {
+                const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+                const mobileMenu = document.querySelector('.mobile-menu');
+                const mobileMenuClose = document.querySelector('.mobile-menu-close');
+                
+                if (mobileMenuBtn && mobileMenu && mobileMenuClose) {
+                    mobileMenuBtn.addEventListener('click', function() {
+                        mobileMenu.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    });
+                    
+                    mobileMenuClose.addEventListener('click', function() {
+                        mobileMenu.classList.remove('active');
+                        document.body.style.overflow = '';
+                    });
+                    
+                    // Закрытие меню при клике вне его
+                    document.addEventListener('click', function(e) {
+                        if (!mobileMenu.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                            mobileMenu.classList.remove('active');
+                            document.body.style.overflow = '';
+                        }
+                    });
+                    
+                    // Закрытие меню при клике на ссылку
+                    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+                    mobileMenuLinks.forEach(link => {
+                        link.addEventListener('click', function() {
+                            mobileMenu.classList.remove('active');
+                            document.body.style.overflow = '';
+                        });
+                    });
+                }
+            });
+        </script>
     </body>
     </html>

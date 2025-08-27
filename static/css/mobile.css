@@ -30,18 +30,14 @@
 	.logo>h1{width: 48%}
 
 	body{
-		background: linear-gradient(135deg, #2D265C, #0F1021);
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-		/*will-change: transform;*/
+		background-color: var(--background-color);
 	}
 
-	body>main{background: none;
+	body>main{background-color: var(--background-color);
 		width: 95%;
 		border-radius: 0;
 		margin-bottom: 100px;
-		box-shadow: none;
+		box-shadow: var(--shadow-lg);
 		padding: 20px 0;
 		margin-left: auto;
 		margin-right: auto;
@@ -161,6 +157,4 @@
 		border-radius: 12px 12px 0 0 ;
 	}
 	#timeActive{width: 100%}
-}
-
 }

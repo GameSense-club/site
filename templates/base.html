@@ -34,6 +34,287 @@
 
     <!-- Цвет темы -->
     <meta name="theme-color" content="#3a2d5d">
+    
+    <style>
+        /* Адаптивные стили для всех страниц */
+        @media (max-width: 768px) {
+            #nav-desktop {
+                display: none;
+            }
+            
+            #nav-mobile {
+                display: flex;
+            }
+            
+            main {
+                padding: 20px 15px;
+            }
+            
+            .user h3 {
+                font-size: 1.5rem;
+            }
+            
+            .user h6 {
+                font-size: 1rem;
+            }
+            
+            .main-link a {
+                font-size: 1rem;
+                padding: 12px 15px;
+            }
+            
+            .main-link hr {
+                margin: 15px 0;
+            }
+            
+            /* Скрываем кнопку выхода на десктопе для планшетов */
+            #nav-desktop button[onclick="logout()"] {
+                display: none;
+            }
+        }
+        
+        /* Стили для больших экранов (Desktop) */
+        @media (min-width: 769px) {
+            #nav-mobile {
+                display: none;
+            }
+            
+            #nav-desktop {
+                display: flex;
+            }
+            
+            /* Показываем кнопку выхода на десктопе */
+            #nav-desktop button[onclick="logout()"] {
+                display: flex;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            main {
+                padding: 15px 10px;
+            }
+            
+            .user h3 {
+                font-size: 1.3rem;
+            }
+            
+            .user h6 {
+                font-size: 0.9rem;
+            }
+            
+            .main-link a {
+                font-size: 0.9rem;
+                padding: 10px 12px;
+            }
+            
+            .main-link hr {
+                margin: 12px 0;
+            }
+            
+            #exit {
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+        }
+        
+        /* Адаптивность для мобильного меню */
+        @media (max-width: 768px) {
+            .menu {
+                width: 90%;
+                max-width: 400px;
+                padding: 20px;
+            }
+            
+            .menu h4 {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .menu {
+                width: 95%;
+                padding: 15px;
+            }
+            
+            .menu h4 {
+                font-size: 1.3rem;
+            }
+            
+            /* Адаптация кнопки выхода для очень малых экранов */
+            .mobile-logout i {
+                font-size: 1.2rem;
+            }
+            
+            #nav-mobile main {
+                padding: 8px 0;
+            }
+            
+            #nav-mobile a {
+                font-size: 0.7rem;
+                padding: 6px;
+            }
+            
+            /* Адаптация тултипа для очень малых экранов */
+            .mobile-logout .tooltip-text {
+                font-size: 0.7rem;
+                padding: 4px 8px;
+            }
+        }
+        
+        /* Адаптивность для уведомлений */
+        @media (max-width: 768px) {
+            .notification {
+                min-width: 200px;
+                left: 20px;
+                right: 20px;
+                transform: none;
+                margin: 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .notification {
+                min-width: 180px;
+                left: 10px;
+                right: 10px;
+                font-size: 0.9rem;
+                padding: 10px;
+            }
+        }
+        
+        /* Адаптивность для кнопки выхода */
+        @media (max-width: 768px) {
+            #exit {
+                top: 15px;
+                right: 15px;
+                padding: 12px 20px;
+                font-size: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            #exit {
+                top: 10px;
+                right: 10px;
+                padding: 10px 18px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* Адаптивность для мобильной навигации */
+        @media (max-width: 768px) {
+            #nav-mobile {
+                position: fixed;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                background: var(--card-color);
+                border-top: 1px solid var(--border-color);
+                z-index: 1000;
+            }
+            
+            #nav-mobile main {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                padding: 10px 0;
+            }
+            
+            /* Баланс для мобильной навигации */
+            #nav-mobile .mobile-balance {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                padding: 6px 10px;
+                border: 1px solid var(--border-color);
+                border-radius: 10px;
+                background: var(--background-color);
+                font-size: 0.9rem;
+                color: var(--text-color);
+            }
+            #nav-mobile .mobile-balance i {
+                font-size: 1rem;
+                color: var(--purple-accent);
+            }
+            
+            #nav-mobile a {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 5px;
+                color: var(--text-color);
+                text-decoration: none;
+                font-size: 0.8rem;
+                padding: 8px;
+                border-radius: 8px;
+                transition: var(--transition);
+            }
+            
+            #nav-mobile a:hover {
+                background: var(--purple-medium);
+                color: var(--white);
+            }
+            
+            #nav-mobile i {
+                font-size: 1.2rem;
+            }
+            
+            /* Стили для кнопки выхода в мобильной навигации */
+            .mobile-logout {
+                color: var(--purple-accent) !important;
+                transition: var(--transition);
+                position: relative;
+            }
+            
+            .mobile-logout:hover {
+                color: var(--purple-light) !important;
+                transform: scale(1.1);
+            }
+            
+            .mobile-logout:active {
+                transform: scale(0.95);
+            }
+            
+            .mobile-logout i {
+                font-size: 1.3rem;
+                transition: transform 0.2s ease;
+            }
+            
+            .mobile-logout:hover i {
+                transform: translateX(2px);
+            }
+            
+            /* Стили для тултипа в мобильной навигации */
+            .mobile-logout .tooltip-text {
+                position: absolute;
+                bottom: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                background: var(--card-color);
+                color: var(--text-color);
+                padding: 5px 10px;
+                border-radius: 6px;
+                font-size: 0.8rem;
+                white-space: nowrap;
+                opacity: 0;
+                visibility: hidden;
+                transition: opacity 0.3s, visibility 0.3s;
+                z-index: 1001;
+                border: 1px solid var(--border-color);
+                box-shadow: var(--shadow);
+            }
+            
+            .mobile-logout:hover .tooltip-text {
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            /* Отступ снизу для основного контента */
+            body > main {
+                padding-bottom: 80px;
+            }
+        }
+    </style>
 </head>
 <body>
     {% include 'menu.html' %}
@@ -65,10 +346,18 @@
     <header id="nav-mobile">
         <div class="placeholder"></div>
         <main>
+            <span class="mobile-balance">
+                <i class="icon iconoir-money-square"></i>
+                <span class="balance"></span>₽
+            </span>
             <a href="/shop"><i class="icon iconoir-shop"></i></a>
             <!-- <a href="/computers"><i class="icon iconoir-computer"></i></a> -->
             <a class='admin' href="/admin" style="display: none;"><i class="icon iconoir-user-crown"></i> </a>
             <a href="/profile"><i class="icon iconoir-profile-circle"></i></a>
+            <a href="#" onclick="logout()" class="mobile-logout tooltip-button">
+                <i class="iconoir-transition-right"></i>
+                <span class="tooltip-text">Выйти</span>
+            </a>
         </main>
     </header>
     <main>

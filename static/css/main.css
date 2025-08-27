@@ -7,6 +7,7 @@
 @import url("pc.css");
 @import url("forms.css");
 @import url("animations.css");
+@import url("responsive.css");
 
 /*Сброс и глобальные стили*/
 * {
@@ -308,6 +309,166 @@ main {
     font-size: 1.2rem;
     color: var(--purple-light);
     opacity: 0.8;
+}
+
+/* Стили для страницы admin */
+.admin-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.admin-header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.admin-header p {
+    font-size: 1.2rem;
+    color: var(--purple-light);
+    opacity: 0.8;
+}
+
+/* Стили для страницы ПК */
+.pc-card {
+    background: var(--gradient-gray);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    cursor: pointer;
+    position: relative;
+}
+
+.pc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--purple-accent);
+}
+
+.pc-card h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.pc-status {
+    font-size: 1rem;
+    color: var(--purple-light);
+    opacity: 0.8;
+}
+
+.busy-pc-card {
+    background: var(--gradient-gray);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.busy-pc-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-color);
+    margin-bottom: 10px;
+}
+
+.busy-pc-card p {
+    font-size: 1rem;
+    color: var(--purple-light);
+    opacity: 0.8;
+}
+
+/* Адаптивные стили для основного контента */
+@media (max-width: 768px) {
+    body > main {
+        width: 100%;
+        border-radius: 0;
+        padding: 20px 15px;
+        margin-left: 0;
+    }
+    
+    body > .full {
+        padding: 0 15px;
+    }
+    
+    .container {
+        padding: 0 15px;
+    }
+    
+    section {
+        margin-top: 40px;
+    }
+    
+    .price-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .price-header p {
+        font-size: 1rem;
+    }
+    
+    .shop-header h1,
+    .profile-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .shop-header p,
+    .profile-header p {
+        font-size: 1rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body > main {
+        padding: 15px 10px;
+    }
+    
+    body > .full {
+        padding: 0 10px;
+    }
+    
+    .container {
+        padding: 0 10px;
+    }
+    
+    section {
+        margin-top: 30px;
+    }
+    
+    .price-header h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    
+    .price-header p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    .shop-header h1,
+    .profile-header h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    
+    .shop-header p,
+    .profile-header p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
 }
 
 .price-section {

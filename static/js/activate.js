@@ -27,7 +27,7 @@ function activate_package(id_product) {
         return response.json();
     })
     .then(result => {
-        window.location.href = '/';
+        window.location.href = '/profile';
     })
     .catch(error => {
         showNotification(error.message); // Показываем конкретную ошибку

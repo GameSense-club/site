@@ -161,3 +161,114 @@
     line-height: 1.6;
     margin-bottom: 20px;
 }
+
+/* Адаптивные стили для страницы цен */
+@media (max-width: 1024px) {
+    .cardsContainer.price {
+        gap: 15px;
+        margin-bottom: 80px;
+    }
+    
+    .card_product {
+        max-width: 280px;
+        min-height: 280px;
+    }
+    
+    .price-header h1 {
+        font-size: 2.8rem;
+    }
+    
+    .contact-card {
+        padding: 25px;
+        max-width: 450px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cardsContainer.price {
+        gap: 12px;
+        margin-bottom: 60px;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .card_product {
+        max-width: 100%;
+        width: 100%;
+        max-width: 400px;
+        min-height: 250px;
+    }
+    
+    .price-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .price-header p {
+        font-size: 1rem;
+    }
+    
+    .contact-card {
+        padding: 20px;
+        margin: 0 20px;
+        max-width: 100%;
+    }
+    
+    .contact-info {
+        gap: 10px;
+    }
+    
+    .contact-item {
+        padding: 10px;
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cardsContainer.price {
+        gap: 10px;
+        margin-bottom: 40px;
+        padding: 0 10px;
+    }
+    
+    .card_product {
+        max-width: 100%;
+        min-height: 220px;
+        padding: 15px;
+    }
+    
+    .price-header h1 {
+        font-size: 1.8rem;
+        line-height: 1.2;
+    }
+    
+    .price-header p {
+        font-size: 0.9rem;
+        line-height: 1.4;
+    }
+    
+    .contact-card {
+        padding: 15px;
+        margin: 0 10px;
+    }
+    
+    .contact-info {
+        gap: 8px;
+    }
+    
+    .contact-item {
+        padding: 8px;
+        flex-direction: column;
+        text-align: center;
+        gap: 6px;
+    }
+    
+    .contact-item i {
+        font-size: 1.1rem;
+    }
+    
+    .contact-item span {
+        font-size: 0.9rem;
+    }
+}
