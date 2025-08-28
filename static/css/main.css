@@ -135,6 +135,8 @@ hr {
     background-color: rgba(255, 255, 255, 0.5);
 }
 
+a, button{cursor: pointer;}
+
 a {
     display: flex;
     align-items: center;
@@ -144,12 +146,9 @@ a {
     border: 1px solid rgba(255, 255, 255, 0);
 }
 
-a:hover {
-    border: 1px solid var(--transperent);
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
 button, .button {
+    position: relative;
+    overflow: hidden;
     box-sizing: border-box;
     border-radius: 24px;
     padding: 12px 24px;
@@ -159,16 +158,13 @@ button, .button {
     font-weight: bold;
 }
 
-button:hover,
-.button:hover {
-    transform: scale(1.03);
-    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.4);
-}
+button::before, .button::before{font-size:24px;}
 
-button:active,
-.button:active {
-    transform: scale(0.97);
-    box-shadow: none;
+.outline-button{
+    background-color: transparent;
+    color: var(--purple-accent);
+    border: 2px solid var(--purple-accent);
+    background: none;
 }
 
 .flat-button {
