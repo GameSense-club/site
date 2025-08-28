@@ -118,16 +118,6 @@ h1, h2, h3, h4, h5, h6, p, a, button {color: var(--text-color);}
 
 
 
-/*Формы и авторизация*/
-.section-login {
-	margin-top: 0;
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-direction: row;
-    height: 100vh;
-}
 
 .logo {
     display: flex;
