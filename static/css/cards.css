@@ -15,3 +15,7 @@
     border-radius: 12px;
     padding: 10px;
 }
+
+.card>button{
+    padding: 12px 16px;
+}
