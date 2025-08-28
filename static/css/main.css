@@ -67,20 +67,6 @@ section{
 h1, h2, h3, h4, h5, h6, p, a, button {color: var(--text-color);}
 
 
-
-
-
-.logo {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    margin-bottom: 40px;
-}
-
-.logo > img {
-    width: 64px;
-}
-
 form {
     display: flex;
     flex-direction: column;
