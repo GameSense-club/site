@@ -23,4 +23,11 @@
 
 .employ{background-color: var(--employ);}
 .active{background-color: var(--card-color);}
-.fix{background-color: var(--fix);}
+.fix{background-color: var(--fix);}input.none{
+	padding: 0;
+	border: none;
+	display: block;
+	max-height: 0;
+	overflow: hidden;
+	transition: 0.3s ease;
+}
