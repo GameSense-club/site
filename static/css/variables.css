@@ -8,6 +8,8 @@
 	--gray-light: #e0e0e0;
 	--white: #ffffff;
 
+	--green: rgb(44.99, 239.06, 15.938);
+
 	--gradient-purple: linear-gradient(135deg, var(--purple-medium), var(--purple-accent));
 	--gradient-gray: linear-gradient(135deg, var(--gray-medium), var(--gray-dark));
 
@@ -15,10 +17,11 @@
 	--text-color: var(--white);
 	--button-color: var(--gradient-purple);
 	--button-border-color: #8e80ff;
-	--card-color: #17172F;
+	--card-color: var(--gray-medium);
 	--transperent: rgba(255, 255, 255, 0.5);
-	--employ: rgb(44.99, 239.06, 15.938, 0.3);
+	--employ: rgba(44.99, 239.06, 15.938, 0.3);
 	--fix: rgb(211.87, 239.06, 15.937, 0.3);
+	 --notification: rgba(44.99, 239.06, 15.938, 0.1);
 }
 
 .employ{background-color: var(--employ);}
