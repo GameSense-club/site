@@ -95,9 +95,7 @@ form > a {
 }
 
 input {
-    padding: 14px 10px;
     border-radius: 12px;
-    font-size: 24px;
     background-color: var(--gray-medium);
     border: 2px solid var(--purple-dark);
     color: var(--text-color);

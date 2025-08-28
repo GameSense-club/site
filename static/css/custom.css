@@ -8,3 +8,7 @@
 .logo > img {
     width: 64px;
 }
+
+@media (width <= 1000px) {
+    .login{width: 100%}
+}

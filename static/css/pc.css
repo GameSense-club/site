@@ -48,4 +48,9 @@
 
 	.card {max-width: 300px;}
 
+	input{
+		padding: 14px 10px;
+		font-size: 24px;
+	}
+
 }
