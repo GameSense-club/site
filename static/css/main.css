@@ -250,19 +250,6 @@ button.deactivate{
 
 #statusPC{width: 100%}
 
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: var(--background-color);
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    flex-direction: column;
-    padding: 10px;
-    border-radius: 6px;
-}
-.dropdown-content>button{margin-top: 10px}
-
 ::-webkit-scrollbar {
   width: 8px; /* Ширина вертикального скроллбара */
   height: 8px; /* Высота горизонтального скроллбара */

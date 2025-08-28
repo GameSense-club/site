@@ -11,7 +11,6 @@
 	--gray-medium: #4a4a4a;
 	--gray-light: #e0e0e0;
 	--white: #ffffff;
-	rgba(157, 138, 199, 0.1);
 
 
 	--green: rgba(var(--green-color), 1);
@@ -37,8 +36,8 @@
 	--accent-bg: rgba(var(--accent), 0.1);
 }
 
-.employ{background-color: var(--employ);}
-.active{background-color: var(--card-color);}
+.employ{background-color: var(--notification);}
+.active{background-color: var(--accent-bg);}
 .fix{background-color: var(--fix);}
 
 .center-display{

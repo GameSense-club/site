@@ -41,7 +41,7 @@ function showPC() {
 
             const dropdown = document.createElement("div");
             dropdown.id = `dropdown${item.id}`;
-            dropdown.className = "dropdown-content";
+            dropdown.className = "dropdown-content none";
             dropdown.innerHTML = `
                 <h4>Компьютер: ${item.number_pc}</h4>
                 <input type="datetime-local" id="timeActive" value="${add4Hours(item.time_active)}">
