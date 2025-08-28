@@ -73,6 +73,8 @@ input.none{
 	color: transparent;
 }
 
+.accent-icon{color: var(--purple-accent);}
+
 .row {
 	display: flex;
 	flex-direction: row;

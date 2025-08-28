@@ -30,18 +30,16 @@ body {
     z-index: -10;
 }
 
+
+
 body > main {
-    width: calc(100% - 300px);
     max-width: 100vw;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     border-radius: 24px 0 0 24px;
-    box-shadow: -4px 0px 20px 10px rgba(0, 0, 0, 0.2);
+
     z-index: 100;
-    margin-left: auto;
-    margin-right: 0;
-    padding: 40px 20px;
     background-color: var(--background-color);
 }
 
@@ -71,6 +69,7 @@ section>header{
     align-items: center;
     justify-content: center;
     margin-bottom: 40px;
+    text-align: center;
 }
 
 
@@ -162,8 +161,6 @@ button, .button {
     overflow: hidden;
     box-sizing: border-box;
     border-radius: 12px;
-    padding: 18px 24px;
-    font-size: 20px;
     background: var(--button-color);
     border: none;
     font-weight: bold;

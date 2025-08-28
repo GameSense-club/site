@@ -40,9 +40,9 @@
     <div id="custom-notification" class="notification"></div>
     <h4 id="out_time" class="notification"></h4>
     {% if self.title() not in ['Вход', 'Логин'] %}
-    <header id="nav-desktop">
+    <header>
         <main>
-            <div class="user">
+            <div class="user pc">
                 <h3 class="first_name">Загрузка</h3>
                 <div class="row">
                     <h6 class="text"><b>Баланс:</b> <i class="balance"></i>₽</h6>
@@ -53,24 +53,16 @@
                 </div>
             </div>
             <div class="main-link">
-                <a href="/"><i class="icon iconoir-shop"></i> Магазин</a>
-                <!-- <a href="/computers"><i class="icon iconoir-computer"></i> Компьютеры</a> -->
-                <a href="/profile"><i class="icon iconoir-profile-circle"></i> Профиль</a>
-                <a class='admin' href="/admin" style="display: none;"><i class="icon iconoir-user-crown"></i> Адимин</a>
-                <hr>
-                <a data-menu="rules"><i class="icon iconoir-info-circle"></i> Правила клуба</a>
+                <a class="text mobile button outline-button"><h6><span class="balance"></span>₽</h6></a>
+                <a href="/"><i class="icon iconoir-shop"></i> <span class="pc">Магазин</span></a>
+                <a href="/profile"><i class="icon iconoir-profile-circle"></i> <span class="pc">Профиль</span></a>
+                <a class='admin' href="/admin" style="display: none;"><i class="icon iconoir-user-crown"></i> <span class="pc">Адимин</span></a>
+                <a class="mobile" onclick="logout()"><i class="iconoir-transition-right accent-icon"></i></a>
+                <hr class="pc">
+                <a data-menu="rules" class="pc"><i class="icon iconoir-info-circle"></i> Правила клуба</a>
             </div>
         </main>
-        <button onclick="logout()"><h5>Выйти</h5></button>
-    </header>
-    <header id="nav-mobile">
-        <div class="placeholder"></div>
-        <main>
-            <a href="/"><i class="icon iconoir-shop"></i></a>
-            <!-- <a href="/computers"><i class="icon iconoir-computer"></i></a> -->
-            <a class='admin' href="/admin" style="display: none;"><i class="icon iconoir-user-crown"></i> </a>
-            <a href="/profile"><i class="icon iconoir-profile-circle"></i></a>
-        </main>
+        <button class="pc" onclick="logout()"><h5>Выйти</h5></button>
     </header>
     {% endif %}
     <main class="{% if self.title() in ['Вход', 'Логин'] %}full{% endif %}">

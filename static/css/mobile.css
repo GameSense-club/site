@@ -4,6 +4,8 @@
 	#searchInput{width: 100%}
 	#sortSelect{width: 100%}
 
+	.pc{display: none}
+
 	.card_user>h5>div>input{
 		max-width: 60px;
 	}
@@ -11,6 +13,11 @@
 	a, button {
 		-webkit-tap-highlight-color: transparent;
 		outline: none;
+	}
+
+	button, .button {
+		padding: 6px 8px;
+		font-size: 16px;
 	}
 
 	h1{font-size: 48px}
@@ -28,6 +35,32 @@
 	
 	.qr-code{display: none}
 	.logo>h1{width: 48%}
+
+	body>header{
+		display: flex;
+		box-sizing: border-box;
+		position: fixed;
+		bottom: 0;
+		width: 100%;
+		z-index: 1;
+		justify-content: space-between;
+		background-color: var(--background-color);
+		align-items: center;
+		justify-content: center;
+		padding: 10px 0px;
+		margin-left: auto;
+        margin-right: auto;
+	}
+
+	body>header>main{width: 95%}
+
+	.main-link{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+	}
 
 	body>main{background: none;
 		width: 95%;
@@ -111,7 +144,7 @@
 		height: 10px;
 	}
 
-	#cardsContainer{
+	.cardsContainer{
 		gap: 6px;
 		display: flex;
 		align-items: center;
