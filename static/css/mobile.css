@@ -27,7 +27,7 @@
 	}
 	
 	.qr-code{display: none}
-	.logo>h1{width: 48%}}
+	.logo>h1{width: 48%}
 
 	body>main{background: none;
 		width: 95%;
@@ -115,7 +115,6 @@
 		gap: 6px;
 		display: flex;
 		align-items: center;
-		justify-content: space-between;
 		width: 100%;
 	}
 
@@ -153,6 +152,5 @@
 		border-radius: 12px 12px 0 0 ;
 	}
 	#timeActive{width: 100%}
-}
 
 }
