@@ -18,11 +18,13 @@
 	--gradient-purple: linear-gradient(135deg, var(--purple-medium), var(--purple-accent));
 	--gradient-gray: linear-gradient(135deg, var(--gray-medium), var(--gray-dark));
 
-	--background-color: var(--gray-dark);
+	--background-color: #1a1a1a;
+	
+	--card-color: var(--gradient-gray);
+	
 	--text-color: var(--white);
 	--button-color: var(--gradient-purple);
 	--button-border-color: #8e80ff;
-	--card-color: var(--gray-medium);
 	--transperent: rgba(255, 255, 255, 0.5);
 	--fix: rgb(211.87, 239.06, 15.937, 0.3);
 	--employ: rgba(var(--green-color), 0.3);
@@ -59,6 +61,13 @@ input.none{
 	font-family: "Orbitron", sans-serif;
 	font-weight: 600;
 	font-style: normal;
+}
+
+.accent-text{
+	background: var(--gradient-purple);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
 }
 
 .row {
