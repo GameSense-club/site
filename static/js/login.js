@@ -107,6 +107,7 @@ async function handleRegisterSubmit(e) {
 
         // Превращаем кнопку регистрации в submit
         registerBtn.type = "submit";
+        registerBtn.classList.remove("outline-button");
 
         // Убираем submit у кнопки "Войти"
         loginBtn.type = "button";
@@ -128,6 +129,8 @@ async function handleRegisterSubmit(e) {
         loginBtn.textContent = "Войти";
         registerBtn.removeAttribute('style');
         loginBtn.style.flexGrow = '1';
+
+        registerBtn.classList.add("outline-button");
 
         form.first_name.removeAttribute("name");
         form.last_name.removeAttribute("name");
