@@ -48,8 +48,7 @@
 	align-items: center;
 }
 
-.none{display: none}
-input.none{
+.none{
 	padding: 0;
 	border: none;
 	display: block;
@@ -107,4 +106,4 @@ input.none{
 .small{font-size: 1rem;}
 .smaller{font-size: smaller;}
 
-.width-width{width: 100%}
+.width-max{width: 100%}

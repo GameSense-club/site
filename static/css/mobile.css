@@ -4,12 +4,7 @@
 	#searchInput{width: 100%}
 	#sortSelect{width: 100%}
 
-	.pc{transform: scale(0);
-		height: 0;
-		width: 0;
-		overflow: hidden;
-		position: absolute;
-	}
+	.pc{display: none !important;}
 
 	.card_user>h5>div>input{
 		max-width: 60px;
@@ -99,9 +94,10 @@
 	}
 
 	#send-code>input{
-		width: 40px;
-		padding: 6px;
+		max-width: calc(100vw / 7.5);
+		flex-grow: 1;
 		text-align: center;
+		padding: 6px;
 	}
 
 	.section-login{
