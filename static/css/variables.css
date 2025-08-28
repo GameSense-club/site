@@ -1,19 +1,21 @@
 :root {
+	--green-color: 44.99, 239.06, 15.938;
+	--red-color: 239.06, 15.937, 15.937;
+	--accent: 157, 138, 199;
+
 	--purple-dark: #3a2d5d;
 	--purple-medium: #5e4b8b;
 	--purple-light: #7d6ba0;
-	--purple-accent: #9d8ac7;
+	--purple-accent: rgb(var(--accent));
 	--gray-dark: #2a2a2a;
 	--gray-medium: #4a4a4a;
 	--gray-light: #e0e0e0;
 	--white: #ffffff;
+	rgba(157, 138, 199, 0.1);
 
-	--green-color: 44.99, 239.06, 15.938;
-	--red-color: 239.06, 15.937, 15.937;
 
 	--green: rgba(var(--green-color), 1);
 	--red: rgba(var(--red-color), 1);
-
 
 	--gradient-purple: linear-gradient(135deg, var(--purple-medium), var(--purple-accent));
 	--gradient-gray: linear-gradient(135deg, var(--gray-medium), var(--gray-dark));
@@ -31,6 +33,8 @@
 	--notification: rgba(var(--green-color), 0.1);
 	--notification-error: rgba(var(--red-color), 0.1);
 	--red-border: rgba(var(--red-color), 0.3);
+
+	--accent-bg: rgba(var(--accent), 0.1);
 }
 
 .employ{background-color: var(--employ);}
