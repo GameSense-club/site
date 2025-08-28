@@ -78,7 +78,6 @@ section{
 
 h1, h2, h3, h4, h5, h6, p, a, button {color: var(--text-color);}
 
-.text {font-style: normal;}
 
 .WDXL {
     font-family: "Monoton", sans-serif;
