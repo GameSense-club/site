@@ -27,15 +27,7 @@
 	}
 	
 	.qr-code{display: none}
-	.logo>h1{width: 48%}
-
-	body{
-		background: linear-gradient(135deg, #2D265C, #0F1021);
-		background-size: cover;
-		background-position: center;
-		background-repeat: no-repeat;
-		/*will-change: transform;*/
-	}
+	.logo>h1{width: 48%}}
 
 	body>main{background: none;
 		width: 95%;
