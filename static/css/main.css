@@ -162,8 +162,6 @@ button, .button {
     justify-content: center;
 }
 
-button::before, .button::before{font-size:24px;}
-
 .outline-button{
     background-color: transparent;
     color: var(--purple-accent);
