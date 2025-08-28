@@ -28,7 +28,7 @@ async function handleLoginSubmit(e) {
         updateUserData();
         window.location.href = '/';
     } catch (error) {
-        showNotification("Неверный логин или пароль");
+        showNotification("Неверный логин или пароль", true);
     }
 }
 
@@ -51,9 +51,9 @@ async function handleRegisterSubmit(e) {
 
         if (!response.ok) {
             if (response.status === 400) {
-                showNotification(`Эта почта уже зарегистрирована`);
+                showNotification(`Эта почта уже зарегистрирована`, true);
             } else {
-                showNotification('Введите правильные данные!');
+                showNotification('Введите правильные данные', true);
             }
             return;
         }
@@ -64,7 +64,7 @@ async function handleRegisterSubmit(e) {
         window.location.href = '/';
     } catch (error) {
         console.error('Network or other error:', error);
-        showNotification('Произошла ошибка сети или сервера');
+        showNotification('Произошла ошибка сети или сервера', true);
     }
 }
 

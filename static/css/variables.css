@@ -8,7 +8,12 @@
 	--gray-light: #e0e0e0;
 	--white: #ffffff;
 
-	--green: rgb(44.99, 239.06, 15.938);
+	--green-color: 44.99, 239.06, 15.938;
+	--red-color: 239.06, 15.937, 15.937;
+
+	--green: rgba(var(--green-color), 1);
+	--red: rgba(var(--red-color), 1);
+
 
 	--gradient-purple: linear-gradient(135deg, var(--purple-medium), var(--purple-accent));
 	--gradient-gray: linear-gradient(135deg, var(--gray-medium), var(--gray-dark));
@@ -19,9 +24,11 @@
 	--button-border-color: #8e80ff;
 	--card-color: var(--gray-medium);
 	--transperent: rgba(255, 255, 255, 0.5);
-	--employ: rgba(44.99, 239.06, 15.938, 0.3);
 	--fix: rgb(211.87, 239.06, 15.937, 0.3);
-	 --notification: rgba(44.99, 239.06, 15.938, 0.1);
+	--employ: rgba(var(--green-color), 0.3);
+	--notification: rgba(var(--green-color), 0.1);
+	--notification-error: rgba(var(--red-color), 0.1);
+	--red-border: rgba(var(--red-color), 0.3);
 }
 
 .employ{background-color: var(--employ);}

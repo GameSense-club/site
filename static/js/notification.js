@@ -4,15 +4,25 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
-function showNotification(message) {
+function showNotification(message, isError = false) {
     const notification = document.getElementById('custom-notification');
     notification.textContent = message;
+    
     notification.className = 'notification show';
+    
+    if (isError) {
+        notification.classList.add('error');
+        setTimeout(() => {
+            notification.className = 'notification error';
+        }, 3000);
+    }
 
-    // Скрыть через 3 секунды
-    setTimeout(() => {
-        notification.className = 'notification';
-    }, 3000);
+    else{
+
+        setTimeout(() => {
+            notification.className = 'notification';
+        }, 3000);
+    }
 }
 
 function showNotificationTime() {
@@ -61,15 +71,15 @@ function showNotificationTime() {
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
             const formattedTime = 
-                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            
-            notification.textContent = formattedTime;
-            notification.className = 'notification show';
-        }
-        
-        updateTimer();
-        const timerInterval = setInterval(updateTimer, 1000);
-    })
+        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+        notification.textContent = formattedTime;
+        notification.className = 'notification show';
+    }
+
+    updateTimer();
+    const timerInterval = setInterval(updateTimer, 1000);
+})
     .catch(error => {
     });
 }

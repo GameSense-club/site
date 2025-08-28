@@ -4,6 +4,7 @@
     color: var(--green);
 
     visibility: hidden;
+    backdrop-filter: blur(10px);
     min-width: 250px;
     text-align: center;
     border-radius: 12px;
@@ -24,9 +25,9 @@
 }
 
 .notification.error{
-    background: var(--notification);
-    border: 2px solid var(--employ);
-    color: var(--green);
+    background: var(--notification-error);
+    border: 2px solid var(--red-border);
+    color: var(--red);
 }
 
 #out_time{
