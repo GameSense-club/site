@@ -1,11 +1,13 @@
 .notification {
+    background: var(--notification);
+    border: 2px solid var(--employ);
+    color: var(--green);
+
     visibility: hidden;
     min-width: 250px;
-    background-color: var(--card-color);
-    color: var(--text-color);
     text-align: center;
-    border-radius: 4px;
-    padding: 12px;
+    border-radius: 12px;
+    padding: 24px;
     position: fixed;
     z-index: 9999;
     left: calc(50%);
@@ -13,11 +15,18 @@
     transform: translateX(-50%);
     opacity: 0;
     transition: opacity 0.5s, visibility 0.5s;
+    font-size: 24px;
 }
 .full>.notification{left: 50%;}
 .notification.show {
     visibility: visible;
     opacity: 1;
+}
+
+.notification.error{
+    background: var(--notification);
+    border: 2px solid var(--employ);
+    color: var(--green);
 }
 
 #out_time{
