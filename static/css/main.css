@@ -37,11 +37,12 @@ body > main {
     display: flex;
     flex-direction: column;
     border-radius: 24px 0 0 24px;
-    box-shadow: -4px 0px 20px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: -4px 0px 20px 10px rgba(0, 0, 0, 0.2);
     z-index: 100;
     margin-left: auto;
     margin-right: 0;
     padding: 40px 20px;
+    background-color: var(--background-color);
 }
 
 body > .full {
@@ -245,58 +246,6 @@ button.deactivate{
     height: 60vh;
     border-radius: 12px;
 }
-
-.card > img {
-    border-radius: 10px;
-}
-
-.price{
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-    justify-content: center;
-}
-.price .card{
-    flex-grow: 1;
-    max-width: 295px;
-}
-
-
-/*Карточки*/
-
-
-.price > .card_product {
-    width: 300px;
-}
-.price > .card_product>img{
-	margin-bottom: 10px;
-}
-
-.card > h5 {
-    margin-bottom: 10px;
-}
-
-.card_user{
-    min-height: auto;
-    padding: 20px;
-    flex-grow: 1;
-}
-.card_user>h5>div>input{
-    padding: 2px;
-    max-width: 100px;
-    text-align: right; 
-}
-
-.pc{
-    border-radius: 12px;
-    padding: 20px;
-}
-.pc>p{
-    font-size: 48px;
-
-}
-
-.pc:hover{transform: scale(1.05);}
 
 
 #statusPC{width: 100%}

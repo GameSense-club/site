@@ -2,8 +2,8 @@ const userData = localStorage.getItem('user');
 const user = JSON.parse(userData);
 const inventory = user.inventory.time_packages;
 
-const host = "https://api.game-sense.ru"; // замените на актуальный хост
-const container = document.getElementById("cardsContainer"); // предположим, у тебя есть контейнер
+const host = "https://api.game-sense.ru"; 
+const container = document.getElementById("cardsContainer"); 
 const pc_token = getCookie('pc_token');
 const jwtToken = getCookie('jwt_token');
 for (const id in inventory) {
@@ -11,7 +11,7 @@ for (const id in inventory) {
 
 		method: 'GET',
 		headers: {
-            'Authorization': `Bearer ${jwtToken}`, // добавляем токен
+            'Authorization': `Bearer ${jwtToken}`,
             'Content-Type': 'application/json'
         }
     })
@@ -21,10 +21,9 @@ for (const id in inventory) {
 			const card = document.createElement("div");
 			card.className = "card card_product";
 
-			let buttonHTML = `<button data-menu="about_activate" class="buy-button details"><h5>Подробнее</h5></button>`;
+			let buttonHTML = `<button data-menu="about_activate" class="buy-button details"><h6>Подробнее</h6></button>`;
 			if (pc_token) {
-				buttonHTML = 
-				buttonHTML = `<button onclick="activate_package(${item.id})" class="buy-button"><h5>Активировать</h5></button>`;
+				buttonHTML = `<button onclick="activate_package(${item.id})" class="buy-button"><h6>Активировать</h6></button>`;
 			}
 
 			card.innerHTML = `
@@ -35,9 +34,7 @@ for (const id in inventory) {
 
 			if (item.is_active === 2) {
 				const section = document.getElementById("blockedContainer");
-				const h2 = document.getElementById("h2");
 				section.style.display = 'flex';
-				h2.style.display = 'block';
 				card.classList.add("deactivate"); 
 				blockedContainer.appendChild(card);
 			} 

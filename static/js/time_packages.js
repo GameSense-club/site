@@ -47,7 +47,7 @@ fetch(url, {method: 'GET',
     card.innerHTML = `
         <img alt="Пакет" loading="eager" src="${host}/images/time_packages/${item.id}">
         <h5 class="custom-text">${item.price}₽</h5>
-        <button class="buy-button"><h5>Купить</h5></button>
+        <button class="buy-button"><h6>Купить</h6></button>
     `;
 
       // Обработчик клика по кнопке
