@@ -28,8 +28,6 @@
 	min-width: 300px;
 }
 
-.full>.menu{left: 50%}
-
 #reset-password{width: 700px;}
 #reset-password>div>form{
 	gap: 10px;

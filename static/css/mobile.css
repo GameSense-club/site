@@ -4,7 +4,12 @@
 	#searchInput{width: 100%}
 	#sortSelect{width: 100%}
 
-	.pc{display: none}
+	.pc{transform: scale(0);
+		height: 0;
+		width: 0;
+		overflow: hidden;
+		position: absolute;
+	}
 
 	.card_user>h5>div>input{
 		max-width: 60px;
@@ -16,7 +21,7 @@
 	}
 
 	a{
-		padding: 4px 8px;
+		padding: 6px 10px;
 	}
 
 	button, .button {
@@ -50,7 +55,7 @@
 		justify-content: center;
 		padding: 10px 0px;
 		margin-left: auto;
-        margin-right: auto;
+		margin-right: auto;
 	}
 
 	body>header>main{width: 95%}
@@ -173,17 +178,6 @@
 
 	.card_user{width: 100%}
 	.notification{left: 50%;}
-
-	.pc{
-		align-items: center;
-		justify-content: center;
-		flex-grow: 1;
-	}
-	.pc>p{
-		align-items: center;
-		display: flex;
-		justify-content: center;
-	}
 
 	.dropdown-content {
 		top: auto;

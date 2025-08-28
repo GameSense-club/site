@@ -66,12 +66,14 @@ input.none{
 	font-style: normal;
 }
 
-.accent-text{
+.gradient-text{
 	background: var(--gradient-purple);
 	-webkit-background-clip: text;
 	background-clip: text;
 	color: transparent;
 }
+
+.accent-text{color: var(--purple-accent);}
 
 .accent-icon{color: var(--purple-accent);}
 
@@ -101,3 +103,8 @@ input.none{
 	display: flex;
 	justify-content: space-between;
 }
+
+.small{font-size: 1rem;}
+.smaller{font-size: smaller;}
+
+.width-width{width: 100%}

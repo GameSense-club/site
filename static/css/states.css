@@ -49,18 +49,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: var(--text-color);
+    color: var(--purple-dark);
     font-size: 24px;
     z-index: 1000;
 }
 
-/* Альтернативно можно сделать анимированный спиннер */
 .loader::after {
     content: "";
     width: 40px;
     height: 40px;
-    border: 8px solid var(--text-color);
-    border-top: 8px solid var(--button-color);
+    border: 8px solid var(--purple-dark);
+    border-top: 8px solid var(--purple-light);
     border-radius: 50%;
     animation: spin 1s linear infinite;
     margin-left: 10px;

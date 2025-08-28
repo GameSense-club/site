@@ -20,7 +20,7 @@ function reset(e) {
         return response.json();
     })
     .then(result => {
-        showNotification("Письмо отправлено");
+        showNotification("Письмо отправлено на вашу почту");
     })
     .catch(error => {
         showNotification(error);

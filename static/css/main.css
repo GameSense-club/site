@@ -44,7 +44,7 @@ body > main {
 }
 
 body > .full {
-    max-width: 1800px;
+    max-width: 1400px;
     width: 100%;
     border-radius: 0;
     padding: 0 20px;
@@ -227,23 +227,6 @@ button.deactivate{
     visibility: visible;
     opacity: 1;
 }
-
-
-
-/*Иконки и элементы интерфейса*/
-.icon {
-    font-size: 1.2em;
-    margin: 0 10px;
-}
-
-/*Изображения и QR-код*/
-.qr-code {
-    height: 60vh;
-    border-radius: 12px;
-}
-
-
-#statusPC{width: 100%}
 
 ::-webkit-scrollbar {
   width: 8px; /* Ширина вертикального скроллбара */
