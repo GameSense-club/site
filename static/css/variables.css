@@ -24,10 +24,55 @@
 .employ{background-color: var(--employ);}
 .active{background-color: var(--card-color);}
 .fix{background-color: var(--fix);}input.none{
+
+.center-display{
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.none{display: none}
+input.none{
 	padding: 0;
 	border: none;
 	display: block;
 	max-height: 0;
 	overflow: hidden;
 	transition: 0.3s ease;
+}
+.show {display: flex;}
+
+
+.custom-text {
+	font-family: "Orbitron", sans-serif;
+	font-weight: 600;
+	font-style: normal;
+}
+
+.row {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	gap: 10px;
+}
+
+.busy-pc{margin: 10px 0}
+
+.column {
+	display: flex;
+	flex-direction: column;
+}
+
+.center{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.between{
+	display: flex;
+	justify-content: space-between;
 }
