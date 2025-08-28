@@ -142,7 +142,8 @@ input {
 }
 
 input:focus {
-    border: 1px solid var(--transparent);
+    outline: none;
+    border-color: var(--purple-accent);
 }
 
 #send-code>input{
