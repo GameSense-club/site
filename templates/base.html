@@ -38,7 +38,7 @@
     {% include 'menu.html' %}
     <div id="custom-notification" class="notification"></div>
     <h4 id="out_time" class="notification"></h4>
-    {% if self.title() not in ['Вход', 'Логин'] %}
+    {% if self.title() not in ['Подтверждение', 'Логин', 'Прайс', 'Восстановление пароля'] %}
     <header>
         <main>
             <div class="user pc">
@@ -64,7 +64,7 @@
         <button class="pc" onclick="logout()"><h5>Выйти</h5></button>
     </header>
     {% endif %}
-    <main class="{% if self.title() in ['Вход', 'Логин'] %}full{% endif %}">
+    <main class="{% if self.title() in ['Подтверждение', 'Логин', 'Прайс', 'Восстановление пароля'] %}full{% endif %}">
         {% block content %}{% endblock %}
     </main>
     {% block scripts %}{% endblock %}
