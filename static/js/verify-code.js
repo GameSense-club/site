@@ -81,7 +81,7 @@ function sendData() {
 		window.location.href = '/';
 	})
 	.catch(error => {
-        showNotification(error.message); // Показываем конкретную ошибку
+        showNotification(error.message, true); // Показываем конкретную ошибку
     });
 }
 
@@ -130,6 +130,6 @@ resendBtn.addEventListener('click', async () => { // добавлен async дл
         const result = await response.json();
 
     } catch (error) {
-        showNotification(error.message); // показываем конкретную ошибку
+        showNotification(error.message, true); // показываем конкретную ошибку
     }
 });

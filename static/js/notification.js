@@ -4,34 +4,7 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
-function showNotification(message, type = 'info') {
-    const notification = document.getElementById('custom-notification');
-    notification.textContent = message;
-    
-    // Удаляем старые классы
-    notification.className = 'notification';
-    
-    // Добавляем классы в зависимости от типа
-    switch(type) {
-        case 'success':
-            notification.classList.add('notification-success');
-            break;
-        case 'error':
-            notification.classList.add('notification-error');
-            break;
-        case 'warning':
-            notification.classList.add('notification-warning');
-            break;
-        default:
-            notification.classList.add('notification-info');
-    }
-    
-    notification.classList.add('show');
 
-    // Скрыть через 4 секунды
-    setTimeout(() => {
-        notification.classList.remove('show');
-    }, 4000);
 }
 
 function showNotificationTime() {
@@ -80,15 +53,15 @@ function showNotificationTime() {
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
             const formattedTime = 
-                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-            
-            notification.textContent = formattedTime;
-            notification.className = 'notification show';
-        }
-        
-        updateTimer();
-        const timerInterval = setInterval(updateTimer, 1000);
-    })
+        `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+        notification.textContent = formattedTime;
+        notification.className = 'notification show';
+    }
+
+    updateTimer();
+    const timerInterval = setInterval(updateTimer, 1000);
+})
     .catch(error => {
     });
 }

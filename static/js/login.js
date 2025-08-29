@@ -40,11 +40,7 @@ async function handleLoginSubmit(e) {
         }, 1000);
         
     } catch (error) {
-        showNotification(error.message || "Неверный логин или пароль", "error");
-    } finally {
-        // Восстанавливаем кнопку
-        loginBtn.disabled = false;
-        loginBtn.textContent = 'Войти';
+
     }
 }
 
@@ -82,9 +78,7 @@ async function handleRegisterSubmit(e) {
 
         if (!response.ok) {
             if (response.status === 400) {
-                throw new Error('Эта почта уже зарегистрирована');
-            } else {
-                throw new Error(result.message || 'Ошибка регистрации');
+
             }
         }
 
@@ -99,47 +93,7 @@ async function handleRegisterSubmit(e) {
         }, 1500);
         
     } catch (error) {
-        showNotification(error.message, "error");
-    } finally {
-        // Восстанавливаем кнопку
-        registerBtn.disabled = false;
-        registerBtn.textContent = 'Зарегистрироваться';
-    }
-}
 
-// Первоначально слушаем только вход
-form.addEventListener('submit', handleLoginSubmit);
-
-// Функция для переключения на регистрацию
-function switchToRegister() {
-    form.id = "registerForm";
-
-    // Удаляем старый обработчик
-    form.removeEventListener('submit', handleLoginSubmit);
-    form.addEventListener('submit', handleRegisterSubmit);
-
-    // Показываем имя и фамилию
-    const firstNameField = form.querySelector('#first_name');
-    const lastNameField = form.querySelector('#last_name');
-    
-    if (firstNameField) firstNameField.classList.remove("none");
-    if (lastNameField) lastNameField.classList.remove("none");
-
-    // Обновляем кнопки
-    loginBtn.textContent = '← Назад';
-    loginBtn.classList.add('btn-back');
-    registerBtn.textContent = 'Зарегистрироваться';
-    registerBtn.classList.add('btn-register');
-
-    // Настраиваем поля
-    if (firstNameField) {
-        firstNameField.name = "first_name";
-        firstNameField.required = true;
-    }
-    if (lastNameField) {
-        lastNameField.name = "last_name";
-        lastNameField.required = true;
-    }
 
     // Заменяем identifier на email
     const identifier = form.querySelector('[name="identifier"]');
@@ -153,20 +107,14 @@ function switchToRegister() {
         emailField.value = identifier.value;
 
         identifier.parentNode.replaceChild(emailField, identifier);
+
     }
 
     // Превращаем кнопку регистрации в submit
     registerBtn.type = "submit";
     loginBtn.type = "button";
 
-    // Обновляем заголовок
-    const title = form.querySelector('.logo h2');
-    if (title) title.textContent = 'Регистрация';
-}
 
-// Функция для возврата к входу
-function switchToLogin() {
-    form.id = "loginForm";
 
     // Удаляем обработчик регистрации
     form.removeEventListener('submit', handleRegisterSubmit);

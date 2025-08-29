@@ -1,33 +1,11 @@
 {% extends "base.html" %}
-{% block title %}Профиль{% endblock %}
-{% block meta_robots %}<meta name="robots" content="noindex, nofollow">{% endblock %}
-{% block content %}
 
+{% block content %}
 <section class="menu" id="about_activate">
-	<h4>Карточку можно активировать только в клубе<br>С нетерпением ждём вас!</h4>
+	<h5 class="center">Карточку можно активировать только в клубе<br>С нетерпением ждём вас!</h5>
 </section>
 
-<button id="exit" onclick="logout()" class="btn btn-primary btn-lg animate-fade-in">
-	<i class="iconoir-transition-right"></i>
-	Выйти
-</button>
 
-<div class="container">
-	<div class="profile-header animate-fade-in">
-		<h1 class="text-gradient">Мой профиль</h1>
-		<p>Управляйте своими карточками и настройками</p>
-	</div>
-
-	<section class="profile-section animate-fade-in animate-delay-1">
-		<h2 class="section-title">Мои карточки</h2>
-		<div id="cardsContainer" class="cardsContainer"></div>
-	</section>
-	
-	<section class="profile-section animate-fade-in animate-delay-2">
-		<h2 class="section-title" id="h2">Сейчас не доступно</h2>
-		<div id="blockedContainer" class="cardsContainer"></div>
-	</section>
-</div>
 {% endblock %}
 {% block scripts %}
 <script src="{{ url_for('static', filename='js/inventory.js') }}"></script>

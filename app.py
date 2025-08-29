@@ -34,10 +34,6 @@ def index():
 def profile():
     return render_template("profile.html")
 
-@app.route('/computers')
-def computers():
-    return render_template("computers.html")
-
 @app.route('/login')
 def login():
     return render_template("login.html")

@@ -5,12 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- SEO метатеги по умолчанию с отдельными блоками -->
-    {% block meta_description %}<meta name="description" content="">{% endblock %}
-    {% block meta_keywords %}<meta name="keywords" content="">{% endblock %}
-    {% block meta_author %}<meta name="author" content="falbue">{% endblock %}
-    {% block meta_robots %}<meta name="robots" content="index, nofollow">{% endblock %}
-    {% block meta_app %}<meta name="mobile-web-app-capable" content="yes">{% endblock %}
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="GameSense">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="mobile-web-app-capable" content="yes">
     
     <!-- Подключение CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
@@ -21,10 +20,7 @@
     <script src="{{ url_for('static', filename='js/menu.js') }}?v=1.0.1" defer></script>
     <script src="{{ url_for('static', filename='js/SPA/router.js') }}?v=1.0.1" defer></script>
     
-    <!-- Подключение Google Fonts - Montserrat и Orbitron как в landing -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+
 
     <!-- Подключение иконок -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css" />
@@ -318,11 +314,12 @@
 </head>
 <body>
     {% include 'menu.html' %}
-    <h4 id="custom-notification" class="notification"></h4>
+    <div id="custom-notification" class="notification"></div>
     <h4 id="out_time" class="notification"></h4>
-    <header id="nav-desktop">
+    {% if self.title() not in ['Подтверждение', 'Вход', 'Прайс', 'Восстановление пароля'] %}
+    <header>
         <main>
-            <div class="user">
+            <div class="user pc">
                 <h3 class="first_name">Загрузка</h3>
                 <div class="row">
                     <h6 class="text"><b>Баланс:</b> <i class="balance"></i>₽</h6>
@@ -333,34 +330,12 @@
                 </div>
             </div>
             <div class="main-link">
-                <a href="/shop"><i class="icon iconoir-shop"></i> Магазин</a>
-                <!-- <a href="/computers"><i class="icon iconoir-computer"></i> Компьютеры</a> -->
-                <a href="/profile"><i class="icon iconoir-profile-circle"></i> Профиль</a>
-                <a class='admin' href="/admin" style="display: none;"><i class="icon iconoir-user-crown"></i> Адимин</a>
-                <hr>
-                <a data-menu="rules"><i class="icon iconoir-info-circle"></i> Правила клуба</a>
+
             </div>
         </main>
-        <button onclick="logout()"><h5>Выйти</h5></button>
+        <button class="pc" onclick="logout()"><h5>Выйти</h5></button>
     </header>
-    <header id="nav-mobile">
-        <div class="placeholder"></div>
-        <main>
-            <span class="mobile-balance">
-                <i class="icon iconoir-money-square"></i>
-                <span class="balance"></span>₽
-            </span>
-            <a href="/shop"><i class="icon iconoir-shop"></i></a>
-            <!-- <a href="/computers"><i class="icon iconoir-computer"></i></a> -->
-            <a class='admin' href="/admin" style="display: none;"><i class="icon iconoir-user-crown"></i> </a>
-            <a href="/profile"><i class="icon iconoir-profile-circle"></i></a>
-            <a href="#" onclick="logout()" class="mobile-logout tooltip-button">
-                <i class="iconoir-transition-right"></i>
-                <span class="tooltip-text">Выйти</span>
-            </a>
-        </main>
-    </header>
-    <main>
+
         {% block content %}{% endblock %}
     </main>
     {% block scripts %}{% endblock %}

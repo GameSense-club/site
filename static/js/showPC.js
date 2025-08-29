@@ -27,7 +27,7 @@ function showPC() {
 
         data.forEach(item => {
             const pc = document.createElement("div");
-            pc.className = "pc";
+            pc.className = "computer";
             pc.id = item.id;
             pc.setAttribute('dropdown', `dropdown${item.id}`);
 
