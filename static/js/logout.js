@@ -30,15 +30,9 @@ async function logout() {
         }
     }
 
-    // Удаление cookie jwt_token
     document.cookie = "jwt_token=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT";
 
-    // Удаление данных из localStorage
     localStorage.removeItem("user");
 
-    // Перенаправление на страницу входа после выхода
-    showNotification("Вы успешно вышли из аккаунта", "success");
-    setTimeout(() => {
-        window.location.href = "/login";
-    }, 1000);
+    window.location.href = "/login";
 }
