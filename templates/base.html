@@ -5,12 +5,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- SEO метатеги по умолчанию с отдельными блоками -->
-    {% block meta_description %}<meta name="description" content="">{% endblock %}
-    {% block meta_keywords %}<meta name="keywords" content="">{% endblock %}
-    {% block meta_author %}<meta name="author" content="falbue">{% endblock %}
-    {% block meta_robots %}<meta name="robots" content="index, nofollow">{% endblock %}
-    {% block meta_app %}<meta name="mobile-web-app-capable" content="yes">{% endblock %}
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="GameSense">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="mobile-web-app-capable" content="yes">
     
     <!-- Подключение CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
