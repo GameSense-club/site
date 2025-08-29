@@ -7,8 +7,7 @@ PUBLIC_ROUTES = {
     'static',
     'login_pc',
     'reset_password',
-    'price',
-    'shop'
+    'price'
 }
 
 @app.before_request
@@ -23,6 +22,7 @@ def require_login():
 @app.route('/')
 def index():
     return render_template("shop.html")
+
 
 @app.route('/profile')
 def profile():
@@ -61,6 +61,7 @@ def reset_password(token):
 @app.route('/price')
 def price():
     return render_template("price.html")
+
 
 if __name__ == '__main__':
     app.run(debug=True, host="0.0.0.0", port=5001)
