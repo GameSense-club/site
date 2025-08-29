@@ -71,6 +71,7 @@
 }
 
 .dropdown-content {
+	display: none;
     position: absolute;
     background-color: var(--background-color);
     min-width: 160px;

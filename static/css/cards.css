@@ -1,3 +1,17 @@
+    
+@media (width >= 1000px){
+    .card {max-width: 300px;}
+
+    .card_user{
+        max-width: 1000px;
+        flex-grow: 1;
+    }
+}
+
+@media (width <= 1000px) {}
+
+.card_user input{max-width: 80px}
+
 .cardsContainer {
     gap: 20px;
     display: flex;
@@ -23,3 +37,10 @@
 .card > img {
     border-radius: 10px;
 }
+
+.computer{
+    border-radius: 12px;
+    padding: 20px;
+
+}
+.computer>p{font-size: 48px;}

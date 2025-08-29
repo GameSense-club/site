@@ -56,7 +56,7 @@
 	overflow: hidden;
 	transition: 0.3s ease;
 }
-.show {display: flex;}
+.show {display: flex !important;}
 
 
 .custom-text {

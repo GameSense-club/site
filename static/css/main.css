@@ -94,7 +94,7 @@ form > a {
     padding: 4px;
 }
 
-input {
+input, select {
     border-radius: 12px;
     background-color: var(--gray-medium);
     border: 2px solid var(--purple-dark);
@@ -103,7 +103,7 @@ input {
     max-height: 500px;
 }
 
-input:focus {
+input:focus, select:focus {
     outline: none;
     border-color: var(--purple-accent);
 }
@@ -114,15 +114,6 @@ input:focus {
 #searchInput{
     width: 60%;
     margin-bottom: 20px;
-}
-
-select{
-    padding: 14px 10px;
-    border-radius: 12px;
-    font-size: 24px;
-    background-color: var(--card-color);
-    border: 1px solid rgba(0, 0, 0, 0);
-    color: var(--text-color);
 }
 
 #sortSelect{

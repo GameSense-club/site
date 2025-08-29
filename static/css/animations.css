@@ -28,3 +28,6 @@ a:hover {
     color: var(--purple-accent);
     background-color: var(--accent-bg);
 }
+
+.computer:hover{transform: scale(1.05);}
+.computer:active{transform: scale(0.95);}

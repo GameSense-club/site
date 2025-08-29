@@ -47,10 +47,8 @@
 	a{
 		padding: 12px 24px;
 	}
-
-	.card {max-width: 300px;}
-
-	input{
+	
+	input, select{
 		padding: 14px 10px;
 		font-size: 24px;
 	}

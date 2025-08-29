@@ -27,7 +27,7 @@ function showPC() {
 
         data.forEach(item => {
             const pc = document.createElement("div");
-            pc.className = "pc";
+            pc.className = "computer";
             pc.id = item.id;
             pc.setAttribute('dropdown', `dropdown${item.id}`);
 
@@ -41,7 +41,7 @@ function showPC() {
 
             const dropdown = document.createElement("div");
             dropdown.id = `dropdown${item.id}`;
-            dropdown.className = "dropdown-content none";
+            dropdown.className = "dropdown-content";
             dropdown.innerHTML = `
                 <h4>Компьютер: ${item.number_pc}</h4>
                 <input type="datetime-local" id="timeActive" value="${add4Hours(item.time_active)}">
