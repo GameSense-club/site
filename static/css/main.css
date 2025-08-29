@@ -163,9 +163,10 @@ button, .button {
 .flat-button {
     border-radius: 0px;
     padding: 0px;
-    background-color: rgba(0, 0, 0, 0);
+    background-color: none;
     border: none;
     color: var(--text-color);
+    background: none;
 }
 
 .flat-button:hover {
