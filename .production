@@ -1,6 +1,6 @@
 # Основные настройки
 PROJECT=gunicorn
-DOMAIN=game-sense.ru
+DOMAIN=pc.game-sense.ru
 SERVICE_NAME=gs_site
 
 # Сетевые настройки
