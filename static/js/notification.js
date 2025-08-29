@@ -4,7 +4,25 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
+function showNotification(message, isError = false) {
+    const notification = document.getElementById('custom-notification');
+    notification.textContent = message;
+    
+    notification.className = 'notification show';
+    
+    if (isError) {
+        notification.classList.add('error');
+        setTimeout(() => {
+            notification.className = 'notification error';
+        }, 3000);
+    }
 
+    else{
+
+        setTimeout(() => {
+            notification.className = 'notification';
+        }, 3000);
+    }
 }
 
 function showNotificationTime() {
