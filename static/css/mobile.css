@@ -49,14 +49,27 @@
 		margin-right: auto;
 	}
 
+	body>header>main{width: 95%}
 
+	.main-link{
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
 	}
 
-	body>main{background-color: var(--background-color);
+	.main-link>a{
+		align-items: center;
+		flex: 1;
+		justify-content: center;
+	}
+
+	body>main{background: none;
 		width: 95%;
 		border-radius: 0;
 		margin-bottom: 100px;
-		box-shadow: var(--shadow-lg);
+		box-shadow: none;
 		padding: 20px 0;
 		margin-left: auto;
 		margin-right: auto;
