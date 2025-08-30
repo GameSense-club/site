@@ -69,4 +69,6 @@
 .center-display .greetings {order: 1;}
 
 .icon{
-}
+        font-size: 1.0em;
+        margin: 0 10px;
+    }
