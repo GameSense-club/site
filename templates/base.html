@@ -18,7 +18,7 @@
     <script src="{{ url_for('static', filename='js/logout.js') }}?v=1.0.1" defer></script>
     <script src="{{ url_for('static', filename='js/notification.js') }}?v=1.0.1" defer></script>
     <script src="{{ url_for('static', filename='js/menu.js') }}?v=1.0.1" defer></script>
-    <script src="{{ url_for('static', filename='js/SPA/router.js') }}?v=1.0.1" defer></script>
+    <script src="{{ url_for('static', filename='js/send-payment.js') }}" defer></script>
     
     <!-- Подключение Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -45,19 +45,14 @@
                 <h3 class="first_name">Загрузка</h3>
                 <div class="row">
                     <h6 class="text"><b>Баланс:</b> <i class="balance"></i>₽</h6>
-                    <button id="update-user" class="flat-button tooltip-button">
-                        <h5 class="iconoir-arrow-down-circle-solid"></h5>
-                        <span class="tooltip-text">Обновление баланса</span>
-                    </button>
-                    <button id="add-balance" class="flat-button tooltip-button">
+                    <a data-menu="balance" class="flat-button tooltip-button">
                         <h5 class="iconoir-plus-circle-solid"></h5>
-                        <span class="tooltip-text">Пополнить баланс</span>
-                    </button>
+                        <span class="tooltip-text">Обновление баланса</span>
+                    </a>
                 </div>
             </div>
             <div class="main-link">
-                <a class="mobile button outline-button mobile"><h6><span class="balance"></span>₽</h6></a>
-                <a class="mobile button outline-button mobile" id="add-balance-mobile"><h6><i class="iconoir-plus-circle-solid"></i> Пополнить</h6></a>
+                <a data-menu="balance" class="mobile button outline-button mobile"><h6><span class="balance"></span>₽</h6></a>
                 <a href="/"><i class="icon iconoir-shop"></i> <span class="pc">Магазин</span></a>
                 <a href="/profile"><i class="icon iconoir-profile-circle"></i> <span class="pc">Профиль</span></a>
                 <a class='admin' href="/admin" style="display: none;"><i class="icon iconoir-user-crown"></i> <span class="pc">Адимин</span></a>
@@ -74,18 +69,6 @@
     </main>
     {% block scripts %}{% endblock %}
     <script>
-        document.getElementById('update-user').addEventListener('click', function () {
-            updateUserData();
-        });
-
-        document.getElementById('add-balance').addEventListener('click', function () {
-            showAddBalanceModal();
-        });
-
-        document.getElementById('add-balance-mobile').addEventListener('click', function () {
-            showAddBalanceModal();
-        });
-
         const adminElements = document.querySelectorAll(".admin");
 
         function updateData() {
@@ -126,73 +109,6 @@
     // И затем обновляем каждую секунду (1000 мс)
         setInterval(updateData, 1000);
         setInterval(updateUserData, 10000);
-
-        function showAddBalanceModal() {
-            const modal = document.createElement('div');
-            modal.className = 'add-balance-modal';
-            modal.innerHTML = `
-                <div class="modal-overlay" onclick="closeAddBalanceModal()"></div>
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3>Пополнение баланса</h3>
-                        <button class="close-btn" onclick="closeAddBalanceModal()">×</button>
-                    </div>
-                    <div class="modal-body">
-                        <p>Выберите способ пополнения:</p>
-                        <div class="payment-methods">
-                            <button class="payment-method" onclick="selectPaymentMethod('card')">
-                                <i class="iconoir-credit-card"></i>
-                                <span>Банковская карта</span>
-                            </button>
-                            <button class="payment-method" onclick="selectPaymentMethod('cash')">
-                                <i class="iconoir-money-square"></i>
-                                <span>Наличные в клубе</span>
-                            </button>
-                        </div>
-                        <div class="amount-section" id="amount-section" style="display: none;">
-                            <label for="amount">Сумма пополнения (₽):</label>
-                            <input type="number" id="amount" placeholder="Введите сумму" min="100" max="10000">
-                            <button class="confirm-btn" onclick="confirmPayment()">Подтвердить</button>
-                        </div>
-                    </div>
-                </div>
-            `;
-            document.body.appendChild(modal);
-        }
-
-        function closeAddBalanceModal() {
-            const modal = document.querySelector('.add-balance-modal');
-            if (modal) {
-                modal.remove();
-            }
-        }
-
-        function selectPaymentMethod(method) {
-            const amountSection = document.getElementById('amount-section');
-            amountSection.style.display = 'block';
-            
-            // Сохраняем выбранный метод
-            window.selectedPaymentMethod = method;
-        }
-
-        function confirmPayment() {
-            const amount = document.getElementById('amount').value;
-            const method = window.selectedPaymentMethod;
-            
-            if (!amount || amount < 100) {
-                alert('Минимальная сумма пополнения: 100₽');
-                return;
-            }
-            
-            if (method === 'cash') {
-                alert(`Обратитесь к администратору клуба для пополнения баланса на сумму ${amount}₽`);
-            } else {
-                alert(`Перенаправление на страницу оплаты картой на сумму ${amount}₽`);
-                // Здесь можно добавить интеграцию с платежной системой
-            }
-            
-            closeAddBalanceModal();
-        }
     </script>
 </body>
 </html>

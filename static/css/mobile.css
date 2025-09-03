@@ -176,25 +176,3 @@
 		border-radius: 12px 12px 0 0 ;
 	}
 	#timeActive{width: 100%}
-
-	/* Адаптация кнопки пополнения баланса для мобильных */
-	#add-balance-mobile {
-		display: flex !important;
-		align-items: center;
-		justify-content: center;
-		gap: 8px;
-		padding: 8px 12px;
-		font-size: 14px;
-		min-width: 120px;
-	}
-
-	#add-balance-mobile i {
-		font-size: 16px;
-	}
-
-	/* Скрываем кнопку пополнения в десктопной версии на мобильных */
-	.user .row #add-balance {
-		display: none !important;
-	}
-
-}

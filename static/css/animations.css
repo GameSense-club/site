@@ -12,7 +12,7 @@ button::after, .button::after{
 
 button:hover::after, .button:hover::after {left: 100%;}
 
-.outline-button:hover{
+.outline-button.active, .outline-button:hover{
     color: var(--white);
     background-color: var(--purple-accent);
 }
