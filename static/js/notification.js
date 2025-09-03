@@ -29,6 +29,11 @@ function showNotificationTime() {
     const pc_token = getCookie('pc_token');
     const jwtToken = getCookie('jwt_token');
 
+    // Проверяем наличие pc_token перед отправкой запроса
+    if (!pc_token) {
+        return;
+    }
+
     fetch(`https://api.game-sense.ru/pc/status/${pc_token}`, {
         method: 'GET',
         headers: {
@@ -47,7 +52,7 @@ function showNotificationTime() {
         const notification = document.getElementById('out_time');
 
         const endTime = new Date(time_active);
-        endTime.setHours(endTime.getHours() + 5); // Добавляем 5 часов к endTime
+        endTime.setHours(endTime.getHours() + 5);
         const now = new Date();
 
         if (endTime <= now) {
@@ -81,7 +86,8 @@ function showNotificationTime() {
     const timerInterval = setInterval(updateTimer, 1000);
 })
     .catch(error => {
+        console.error('Ошибка при выполнении запроса:', error);
     });
 }
 
-showNotificationTime()
+showNotificationTime();

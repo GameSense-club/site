@@ -11,7 +11,6 @@ function updateUserData() {
     const jwtToken = getCookie('jwt_token');
 
     if (!jwtToken) {
-        console.error('JWT токен не найден в куках');
         return;
     }
 

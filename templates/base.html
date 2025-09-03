@@ -76,7 +76,7 @@
             if (userData) {
                 const user = JSON.parse(userData);
 
-                if (user.email_confirmed === 0) {
+                if (user.email_confirmed === 0 && window.location.pathname !== "/verify") {
                     window.location.href = "/verify";
                 }
 
