@@ -5,52 +5,53 @@ function getCookie(name) {
 }
 
 const jwtToken = getCookie('jwt_token');
-
-
 const userData = localStorage.getItem('user');
 const user = JSON.parse(userData);
-const email = user?.email || 'Email не найден'; // Защита от undefined
-
-
+const email = user?.email || 'Email не найден';
 
 fetch('https://api.game-sense.ru/verify-code/send', {
-		method: 'POST',
-		headers: {
-			'Authorization': `Bearer ${jwtToken}`,
-			'Content-Type': 'application/json'
-		},
-		body: JSON.stringify({email:email})
-	})
-
+	method: 'POST',
+	headers: {
+		'Authorization': `Bearer ${jwtToken}`,
+		'Content-Type': 'application/json'
+	},
+	body: JSON.stringify({email:email})
+})
 
 document.getElementById("email").textContent = email;
 
 const inputs = document.querySelectorAll('input');
 const resendBtn = document.getElementById('resendBtn');
 
-    // Фокус на первое поле
 inputs[0].focus();
 
-    // Переключение фокуса при вводе
-inputs.forEach((input, index) => {
-	input.addEventListener('input', () => {
-		if (input.value.length === 1 && index < inputs.length - 1) {
-			inputs[index + 1].focus();
-		}
+document.addEventListener('DOMContentLoaded', function() {
+    const inputs = document.querySelectorAll('#send-code input');
+    
+    inputs.forEach((input, index) => {
+        input.addEventListener('input', () => {
+            if (input.value.length === 1 && index < inputs.length - 1) {
+                inputs[index + 1].focus();
+            }
 
-            // Проверка, заполнены ли все поля
-		const allFilled = Array.from(inputs).every(input => input.value.length === 1);
-		if (allFilled) {
-                sendData(); // Отправляем данные, когда все поля заполнены
+            const allFilled = Array.from(inputs).every(input => input.value.length === 1);
+            if (allFilled) {
+                sendData();
             }
         });
 
-        // Поддержка Backspace для перемещения назад
-	input.addEventListener('keydown', (e) => {
-		if (e.key === 'Backspace' && input.value === '' && index > 0) {
-			inputs[index - 1].focus();
-		}
-	});
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Backspace' || e.key === 'Delete') {
+                if (input.value === '' && index > 0) {
+                    inputs[index - 1].focus();
+                    inputs[index - 1].value = '';
+                } else if (input.value !== '') {
+                    input.value = '';
+                }
+                e.preventDefault();
+            }
+        });
+    });
 });
 
 function sendData() {
@@ -58,7 +59,7 @@ function sendData() {
 	const jwtToken = getCookie('jwt_token');
 	const data = { email: email, code: code };
 
-	fetch('https://api.game-sense.ru/verify-code ', {
+	fetch('https://api.game-sense.ru/verify-code', {
 		method: 'POST',
 		headers: {
 			'Authorization': `Bearer ${jwtToken}`,
@@ -68,7 +69,6 @@ function sendData() {
 	})
 	.then(response => {
 		if (!response.ok) {
-            // Пробуем получить текст ошибки
 			return response.json()
 			.then(errorData => {
 				const errorMessage = errorData.error || 'Неверный код';
@@ -81,29 +81,26 @@ function sendData() {
 		window.location.href = '/';
 	})
 	.catch(error => {
-        showNotification(error.message, true); // Показываем конкретную ошибку
+        showNotification(error.message, true);
     });
 }
 
-// Включаем кнопку через 10 секунд
 setTimeout(() => {
 	resendBtn.classList.remove('deactivate');
 }, 30000);
 
-// Обработчик кнопки повторной отправки
-resendBtn.addEventListener('click', async () => { // добавлен async для использования await
+resendBtn.addEventListener('click', async () => {
 	resendBtn.classList.add('deactivate');
 
 	setTimeout(() => {
 		resendBtn.classList.remove('deactivate');
 	}, 30000);
 
-	const code = Array.from(inputs).map(input => input.value).join('');
 	const jwtToken = getCookie('jwt_token');
-    const data = { email: email }; // убедитесь, что переменная email определена
+    const data = { email: email };
 
     try {
-        const response = await fetch('https://api.game-sense.ru/verify-code/send ', { // убран лишний пробел
+        const response = await fetch('https://api.game-sense.ru/verify-code/send', {
         	method: 'POST',
         	headers: {
         		'Authorization': `Bearer ${jwtToken}`,
@@ -114,7 +111,6 @@ resendBtn.addEventListener('click', async () => { // добавлен async дл
 
         if (!response.ok) {
         	let errorMessage = 'Ошибка на сервере';
-            // Пытаемся получить текст ошибки
         	const contentType = response.headers.get("content-type");
         	if (contentType && contentType.includes("application/json")) {
         		const errorData = await response.json();
@@ -130,6 +126,6 @@ resendBtn.addEventListener('click', async () => { // добавлен async дл
         const result = await response.json();
 
     } catch (error) {
-        showNotification(error.message, true); // показываем конкретную ошибку
+        showNotification(error.message, true);
     }
 });
