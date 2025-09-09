@@ -72,3 +72,9 @@
         font-size: 1.0em;
         margin: 0 10px 0 0;
 }
+
+button[data-menu="balance"] {
+    width: 100%;
+    margin-top: 10px;
+    padding: 6px 12px;
+}

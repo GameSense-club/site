@@ -1,46 +1,65 @@
-
 document.addEventListener('DOMContentLoaded', function() {
-    const paymentButtons = document.querySelectorAll('.payment-methods button');
     const amountInput = document.getElementById('amount');
     const confirmBtn = document.getElementById('confirm-btn');
 
-    paymentButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            paymentButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            validateForm();
-        });
-    });
-
-    // Обработчик ввода суммы
     amountInput.addEventListener('input', validateForm);
 
-    // Проверка условий активации кнопки
     function validateForm() {
-        const isMethodSelected = document.querySelector('.payment-methods .active') !== null;
         const amount = parseFloat(amountInput.value);
         const isAmountValid = !isNaN(amount) && amount > 0 && amount <= 10000;
 
-        if (isMethodSelected && isAmountValid) {
+        if (isAmountValid) {
             confirmBtn.classList.remove('deactivate');
+            confirmBtn.disabled = false;
         } else {
             confirmBtn.classList.add('deactivate');
+            confirmBtn.disabled = true;
         }
     }
 
-    // Обработчик подтверждения (отправка данных)
     confirmBtn.addEventListener('click', function() {
         if (!this.classList.contains('deactivate')) {
-            const method = document.querySelector('.payment-methods .active').dataset.method;
             const amount = amountInput.value;
+            const userData = localStorage.getItem('user');
+            const user = JSON.parse(userData);
             
-            // Здесь будет ваша логика отправки данных
-            console.log('Отправка данных:', {
-                paymentMethod: method,
-                amount: amount
-            });
-            
-            // sendToCashRegister(method, amount);
+            sendPayment(amount, user.email);
         }
     });
 });
+
+function sendPayment(value, email) {
+    const jwtToken = getCookie('jwt_token');
+    const form = document.querySelector('form');
+    
+    const data = {
+        value: value,
+        email: email
+    };
+    
+    loading(form, true);
+    
+    fetch('https://api.game-sense.ru/payments', {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${jwtToken}`,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Ошибка при обработке платежа');
+        }
+        return response.json();
+    })
+    .then(result => {
+        window.location.href = result; 
+    })
+    .catch(error => {
+        showNotification(error.message, true);
+    })
+    .finally(() => {
+        loading(form, false);
+    });
+}
