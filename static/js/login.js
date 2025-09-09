@@ -4,6 +4,12 @@ const buttons = form.querySelectorAll("button");
 const loginBtn = buttons[0];
 const registerBtn = buttons[1];
 
+const jwtToken = getCookie('jwt_token');
+
+if (jwtToken) {
+    window.location.href = '/';
+}
+
     // Функция для отправки формы входа
 async function handleLoginSubmit(e) {
     e.preventDefault();
