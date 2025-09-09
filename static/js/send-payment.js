@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function validateForm() {
         const amount = parseFloat(amountInput.value);
-        const isAmountValid = !isNaN(amount) && amount > 0 && amount <= 10000;
+        const isAmountValid = !isNaN(amount) && amount >= 50 && amount <= 10000;
 
         if (isAmountValid) {
             confirmBtn.classList.remove('deactivate');
