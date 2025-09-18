@@ -6,6 +6,8 @@
 	h5 { font-size: 24px; }
 	h6 { font-size: 20px; }
 
+	#newPassword{width: 600px}
+
 	.mobile{display: none !important;}
 
 	body>header{
