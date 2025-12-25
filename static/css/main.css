@@ -27,7 +27,6 @@ input[type="number"]::-webkit-inner-spin-button {
 body {
     background-color: var(--background-color);
     z-index: -10;
-    overflow-y: hidden;
 }
 
 
@@ -543,4 +542,25 @@ button.deactivate {
     /* Workaround for Chromium's selective color inversion */
     border-radius: 50%;
     filter: drop-shadow(0 0 10px white);
+}
+
+/* Overlay for snow to prevent layout shift and horizontal scroll */
+#snow {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+}
+
+/* Ensure flakes don't capture events and stay within overlay */
+.snowflake {
+    pointer-events: none;
+}
+
+/* Guard against horizontal scroll on mobile */
+html {
+    overflow-x: hidden;
 }
