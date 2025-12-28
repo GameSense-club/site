@@ -70,5 +70,10 @@ def price():
     return render_template("price.html")
 
 
+@app.route("/roulette")
+def roulette():
+    return render_template("roulette.html")
+
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5001)
