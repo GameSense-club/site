@@ -9,7 +9,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Делегирование события для кнопок меню
     document.addEventListener('click', function(e) {
-        const button = e.target.closest('[data-menu]');
+        const t = e.target;
+        const el = !t ? null : t.nodeType === 1 ? t : t.parentElement;
+        const button = el && el.closest ? el.closest('[data-menu]') : null;
         
         if (button) {
             e.preventDefault();
@@ -41,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Закрытие меню при клике вне его области
-        else if (currentOpenMenu && !currentOpenMenu.contains(e.target)) {
+        else if (currentOpenMenu && el && !currentOpenMenu.contains(el)) {
             currentOpenMenu.style.display = 'none';
             currentOpenMenu = null;
             overlay.style.display = 'none';
@@ -50,7 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Предотвращаем закрытие при клике внутри меню
     document.addEventListener('click', function(e) {
-        if (e.target.closest('.menu')) {
+        const t = e.target;
+        const el = !t ? null : t.nodeType === 1 ? t : t.parentElement;
+        if (el && el.closest && el.closest('.menu')) {
             e.stopPropagation();
         }
     });

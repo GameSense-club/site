@@ -52,12 +52,18 @@ def login_pc(pc_token):
 
 @app.route("/admin")
 def admin():
-    return render_template(f"admin.html")
+    return render_template("admin.html", admin_nav="overview")
 
 
 @app.route("/admin/<action>")
 def action_admin(action):
-    return render_template(f"{action}.html")
+    allowed = {"add_balance", "pc", "revenue"}
+    if action not in allowed:
+        return redirect(url_for("admin"))
+    nav_map = {"add_balance": "clients", "pc": "pc", "revenue": "revenue"}
+    return render_template(
+        f"{action}.html", admin_nav=nav_map.get(action, "overview")
+    )
 
 
 @app.route("/reset-password/<token>")
